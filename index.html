@@ -445,36 +445,58 @@ $(document).ready(function () {
     });
 
     // 상품 클릭 → 결과 항목 추가
-    $('.main_proposal_pro_detail li').on('click', function () {
-        const productName = $(this).find('.pr').text().trim();
-        const sale = $(this).find('.sale').text().trim();
-        const ogPriceText = $(this).find('.og_price').text().replace(/[^0-9]/g, '');
-        const priceText = $(this).find('.price').text().replace(/[^0-9]/g, '');
-        const ogPrice = parseInt(ogPriceText);
-        const price = parseInt(priceText);
-        const index = $('.main_proposal_result ul li').length + 1;
+ $('.main_proposal_pro_detail li').on('click', function () {
+    const productName = $(this).find('.pr').text().trim();
+    const sale = $(this).find('.sale').text().trim();
+    const ogPriceText = $(this).find('.og_price').text().replace(/[^0-9]/g, '');
+    const priceText = $(this).find('.price').text().replace(/[^0-9]/g, '');
+    const ogPrice = parseInt(ogPriceText);
+    const price = parseInt(priceText);
 
-        const resultItem = `
-            <li>
-                <div class="number">${index}</div>
-                <div class="pr_re_brand">${selectedBrandName}</div>
-                <div class="product_name pr_re_name">${productName}</div>
-                <div class="pr_re_og_price">${ogPrice.toLocaleString()}원</div>
-                <div class="pr_re_sale">${sale}</div>
-                <div class="pr_re_price point" data-unit="${price}">${price.toLocaleString()} 원</div>                        
-                <div class="qu_button">
-                    <label>수량</label>
-                    <button type="button" class="qty-minus">-</button>
-                    <input type="text" value="1" min="1">
-                    <button type="button" class="qty-plus">+</button>
-                </div>
-                <div><button type="button" class="delete">삭제</button></div>
-            </li>
-        `;
+    let isDuplicate = false;
 
-        $('.main_proposal_result ul').append(resultItem);
-        updateTotal();
+    $('.main_proposal_result ul li').each(function () {
+        const existingBrand = $(this).find('.pr_re_brand').text().trim();
+        const existingProduct = $(this).find('.pr_re_name').text().trim();
+
+        if (existingBrand === selectedBrandName && existingProduct === productName) {
+            // 중복 항목 → 수량 증가 및 가격 업데이트
+            let $input = $(this).find('input');
+            let quantity = parseInt($input.val()) + 1;
+            $input.val(quantity);
+            updateItemPrice($(this), quantity);
+            isDuplicate = true;
+            return false; // .each 탈출
+        }
     });
+
+    if (isDuplicate) {
+        updateTotal();
+        return; // 중복이면 새로 추가 안 함
+    }
+
+    const index = $('.main_proposal_result ul li').length + 1;
+    const resultItem = `
+        <li>
+            <div class="number">${index}</div>
+            <div class="pr_re_brand">${selectedBrandName}</div>
+            <div class="product_name pr_re_name">${productName}</div>
+            <div class="pr_re_og_price">${ogPrice.toLocaleString()}원</div>
+            <div class="pr_re_sale">${sale}</div>
+            <div class="pr_re_price point" data-unit="${price}">${price.toLocaleString()} 원</div>                        
+            <div class="qu_button">
+                <label>수량</label>
+                <button type="button" class="qty-minus">-</button>
+                <input type="text" value="1" min="1">
+                <button type="button" class="qty-plus">+</button>
+            </div>
+            <div><button type="button" class="delete">삭제</button></div>
+        </li>
+    `;
+
+    $('.main_proposal_result ul').append(resultItem);
+    updateTotal();
+});
 
     // 수량 증가
     $(document).on('click', '.qty-plus', function () {
