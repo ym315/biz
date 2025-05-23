@@ -2859,6 +2859,7 @@ img {
 .order_pay01 > ul li .order_view .order_view_ph .order_view_line {
   background: #00b2a9;
   padding: 10px;
+  width: 100%;
 }
 .order_pay01 > ul li .order_view .order_view_ph .order_view_line > div {
   background: #fff;
@@ -2872,6 +2873,7 @@ img {
 }
 .order_pay01 > ul li .order_view .order_view_ph .order_view_line > div .order_view_txt {
   min-height: 200px;
+  word-break: break-all;
 }
 .order_pay01 > ul li .order_view .order_view_ph img {
   max-width: 150px;
@@ -3096,7 +3098,7 @@ img {
 .main_proposal .main_proposal_cate ul li i {
   width: 75px;
   height: 75px;
-  background: #eee;
+  background: #e5efee;
   border-radius: 50%;
   display: block;
   text-align: center;

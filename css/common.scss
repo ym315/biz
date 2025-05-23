@@ -1857,6 +1857,7 @@ $pointskyblue:#eaf0f7;
           .order_view_line{
             background: $basicmint;
             padding:10px;
+            width: 100%;
             >div{
               background:$basicwhite;
               text-align: left;
@@ -1865,6 +1866,7 @@ $pointskyblue:#eaf0f7;
               &.order_view_img{ text-align: center; margin-bottom:20px;}
               .order_view_txt{
                 min-height: 200px;
+                word-break: break-all;
               }
               
             }
@@ -2070,7 +2072,7 @@ $pointskyblue:#eaf0f7;
         i{
           width:75px;
           height:75px;
-          background: #eee;
+          background: #e5efee;
           border-radius: 50%;
           display: block;
           text-align: center;
