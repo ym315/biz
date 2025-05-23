@@ -535,6 +535,8 @@ $(document).ready(function () {
 $('.btn_resetall').on('click', function () {
     // 1. 결과 리스트 초기화
     $('.main_proposal_result_detail').empty();
+    $('.main_proposal_result_total .point').eq(0).text('0');    // 개수 초기화
+    $('.main_proposal_result_total .point').eq(1).text('0 원'); // 금액 초기화
 
     // 2. 총 수량/금액 초기화
     $('.main_proposal_result_total .total_count').text('0');
