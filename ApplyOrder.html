@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FMWNTDL0T8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FMWNTDL0T8');
+    </script>
+    <title>기프트엔 비즈몰</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <meta property="reply-to" content="" />
+    <meta name="author" content="GiftN" />
+    <meta property="copyright" content="" />
+    <meta name="robots" content="index,follow" />
+    <meta name="keywords" content="기업전용 모바일쿠폰, B2B대량발송, 기업이벤트 경품, 정기발송, 등급별 상시할인, 문자발송 서비스, 포인트몰 웹/모바일 API연동 제공, 모바일솔루션" />
+    <meta name="description" content="기업회원으로 등록하시면 상시 5%~10%할인 제공되며, 최대 20%까지 할인되는 이벤트도 활용해 보세요">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="기프트레터 비즈몰 (기프트엔, GiftN)입니다">
+    <meta property="og:description" content="기업회원으로 등록하시면 상시 5%~10%할인 제공되며, 최대 20%까지 할인되는 이벤트도 활용해 보세요">
+    <meta property="og:image" content="https://giftletter77.hgodo.com/com/sns_thum.png ">
+    <meta property="og:url" content="https://www.gift-n.co.kr">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+
+    <link rel="stylesheet" href="/_css/layout.css" />
+    <link rel="stylesheet" href="/_css/common.css" />
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/Scripts/js.cookie.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/_css/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="/_css/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+
+    <!-- s: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+    <link rel="stylesheet" href="/_css/sub.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/Lib/gijgo-combined-1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css">
+
+    <script>
+        $(document).ready(function () {
+            window.history.forward(1);
+
+            $('.inputNum').keypress(function (event) {
+                if (event.which && (event.which <= 47 || event.which >= 58) && event.which != 8) {
+                    event.preventDefault();
+                }
+            });
+
+            // popup
+            var posY;
+            function bodyFreezeScroll() {
+                posY = $(window).scrollTop();
+                $("html").css("position", "fixed");
+                $("html").css("top", -posY);
+            }
+
+            function bodyUnfreezeScroll() {
+                $("html").css("position", "static");
+                posY = $(window).scrollTop(posY);
+            }
+
+            $('.excel_down').click(function () {
+                $('.excel_popup2').fadeIn();
+                bodyFreezeScroll()
+            });
+            $('#btn_close').click(function () {
+                $('.popup').fadeOut()
+                bodyUnfreezeScroll();
+            });
+            $('#btn_ok').click(function () {
+                $('.popup').fadeOut()
+                bodyUnfreezeScroll();
+            });
+
+            $('#numCheck').click(function () {
+                $('.num_info').fadeIn();
+                bodyFreezeScroll()
+            });
+            $('#numclose').click(function () {
+                $('.num_info').fadeOut()
+                bodyUnfreezeScroll();
+            });
+
+            $('#btn_mdnsample_over').click(function () {
+                $('.mdnsample_over').fadeIn();
+                bodyFreezeScroll()
+            });
+            $('#btn_mdnsample_under').click(function () {
+                $('.mdnsample_under').fadeIn();
+                bodyFreezeScroll()
+            });
+            $('#btn_sendhistory').click(function () {
+                $('.sendhistory').fadeIn();
+                bodyFreezeScroll()
+            });
+
+            $('#mdnclose_over').click(function () {
+                $('.mdnsample_over').fadeOut()
+                bodyUnfreezeScroll();
+            });
+            $('#mdnclose_under').click(function () {
+                $('.mdnsample_under').fadeOut()
+                bodyUnfreezeScroll();
+            });
+            $('#historyclose').click(function () {
+                $('.sendhistory').fadeOut()
+                bodyUnfreezeScroll();
+            });
+
+
+            var $checkAll = $('#all');
+            $checkAll.change(function () {
+                var $this = $(this);
+                var checked = $this.prop('checked'); // checked 문자열 참조(true, false)
+                $('input[name="excel_people"]').prop('checked', checked);
+            });
+            var checkInput = $('input[name="excel_people"]');
+            checkInput.change(function () {
+                var boxLength = checkInput.length;
+                // 체크된 체크박스 갯수를 확인하기 위해 :checked 필터를 사용하여 체크박스만 선택한 후 length 프로퍼티를 확인
+                var checkedLength = $('input[name="excel_people"]:checked').length;
+                var selectAll = (boxLength == checkedLength);
+
+                $checkAll.prop('checked', selectAll);
+            });
+
+            // 발송제목, 내용 글자 수 카운팅 및 초과문자열 자르기
+            $('#txt_Send_Title').keyup(function () {
+                fnChkByteTitle(this);
+            });
+            function fnChkByteTitle(obj) {
+                var maxByte = 40; //최대 입력 바이트 수
+                var str = obj.value;
+                var str_len = str.length;
+
+                var rbyte = 0;
+                var rlen = 0;
+                var one_char = "";
+                var str2 = "";
+
+                for (var i = 0; i < str_len; i++) {
+                    one_char = str.charAt(i);
+
+                    if (escape(one_char).length > 4) {
+                        rbyte += 2; //한글2Byte
+                    } else {
+                        rbyte++; //영문 등 나머지 1Byte
+                    }
+
+                    if (rbyte <= maxByte) {
+                        rlen = i + 1; //return할 문자열 갯수
+                    }
+                }
+
+                $('#sms_tit_num').text(rbyte);
+
+                if (rbyte > maxByte) {
+                    alert("한글 " + (maxByte / 2) + "자 / 영문 " + maxByte + "자를 초과 입력할 수 없습니다.");
+                    str2 = str.substr(0, rlen); //문자열 자르기
+                    obj.value = str2;
+                    fnChkByteTitle(obj, maxByte);
+                } else {
+                    document.getElementById('sms_tit_num').innerText = rbyte;
+                }
+            }
+
+            $('#txt_Send_Content').keyup(function () {
+                fnChkByteContent(this);
+            });
+            function fnChkByteContent(obj) {
+                var maxByte = 400; //최대 입력 바이트 수
+                var str = obj.value;
+                var str_len = str.length;
+
+                var rbyte = 0;
+                var rlen = 0;
+                var one_char = "";
+                var str2 = "";
+
+                for (var i = 0; i < str_len; i++) {
+                    one_char = str.charAt(i);
+
+                    if (escape(one_char).length > 4) {
+                        rbyte += 2; //한글2Byte
+                    } else {
+                        rbyte++; //영문 등 나머지 1Byte
+                    }
+
+                    if (rbyte <= maxByte) {
+                        rlen = i + 1; //return할 문자열 갯수
+                    }
+                }
+
+                $('#sms_con_num').text(rbyte);
+
+                if (rbyte > maxByte) {
+                    alert("한글 " + (maxByte / 2) + "자 / 영문 " + maxByte + "자를 초과 입력할 수 없습니다.");
+                    str2 = str.substr(0, rlen); //문자열 자르기
+                    obj.value = str2;
+                    fnChkByteContent(obj, maxByte);
+                } else {
+                    document.getElementById('sms_con_num').innerText = rbyte;
+                }
+            }
+
+            //발행정보 불러오기
+            $('#gethistory').click(function () {
+                var title = document.getElementById("txt_Send_Title");
+                var content = document.getElementById("txt_Send_Content");
+
+                var ord_cd = $(':radio[name="sel_history"]:checked').val();
+                $.ajax({
+                    url: '/Order/SendHistory',
+                    contentType: 'application/json; charset=utf-8',
+                    data: {
+                        ord_cd: ord_cd
+                    },
+                    type: 'GET'
+                })
+                    .success(function (data) {
+                        $.each(data, function (i, item) {
+                            $('.sendhistory').fadeOut();
+                            bodyUnfreezeScroll();
+                            $("#txt_Send_Title").val(item.send_title);
+                            $("#txt_Send_Content").val(item.send_content);
+                            fnChkByteTitle(title);
+                            fnChkByteContent(content);
+                        });
+                    })
+                    .error(function (xhr, status) {
+                        alert('이전 발송정보를 가져올 수 없습니다. 잠시 후 이용바랍니다.');
+                    })
+
+            });
+
+
+        });
+    </script>
+    <!-- e: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+</head>
+<body>
+    <div id="A_Wrap">
+        <header class="head">
+            <article class="head_top">
+                <h1><a href="index.html"><img src="./images/common/black_logo.png"></a></h1>
+                <ul class="head_top_menu">
+                    <li>회원가입</li>
+                    <li>로그인</li>
+                    <li>홍길동님 <span class="pointmint">충전금 134,678원 </span></li>
+                    <li>장바구니<span class="cart_num">2</span></li>   
+                </ul>
+            </article>
+            <article class="head_menu">
+                <section>
+                    <ul class="head_menu_con">
+                        <li><a href="#">브랜드샵</a></li>
+                        <li><a href="#">이벤트</a></li>
+                        <li><a href="#">온라인 견적서</a></li>
+                        <li>
+                            <a href="#">마이페이지</a>
+                            <ul class="head_menu_sub">
+                                <li><a href="/Mypage/Mypage">내정보관리</a></li>
+                                <li><a href="/Mypage/MypageCheck">회원정보관리</a></li>
+                                <li><a href="/Mypage/MypageSendList">발송내역관리</a></li>
+                                <li><a href="/Mypage/MypageCharge">충전금관리</a></li>
+                                <li><a href="/Mypage/MypageEstimate">상품견적관리</a></li>
+                                <li><a href="/Mypage/MypageMms">문자메시지관리</a></li>
+                                <li><a href="/Brand/WishList">찜목록관리</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">고객센터</a>
+                            <ul class="head_menu_sub">
+                                <li><a href="/Notice/Notice">공지사항</a></li>
+                                <li><a href="/Notice/Qna">1:1 문의</a></li>
+                                <li><a href="/Notice/Faq">자주하는 질문</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <script type="text/javascript">
+                        $(".head_menu_con > li").mouseover(function () {
+                            // $(this).children(".head_menu_sub").fadeIn(100);
+                            $(this).children(".head_menu_sub").stop().slideDown(300);
+                        });
+                        $(" .head_menu_con > li, .head_menu_sub").mouseleave(function () {
+                            $(this).children(".head_menu_sub").stop().slideUp(300);
+                        });
+                    </script>
+                    <div class="mainsearch">
+                        <input type="text" class="search_txt" id="searchtext" name="searchtext" placeholder="스타벅스 기프티콘" maxlength="20">
+                        <button type="button" class="search_btn" onclick="javascript: fn_Search();"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        
+                    </div>
+
+
+                    <!-- <div class="search_input">
+                        <input id="keyword" name="keyword" type="text" placeholder="결과 내 재 검색" />
+                        <button class="btn_search" type="button">검색</button>
+                    </div> -->
+                </section>
+            </article>
+    
+    
+        </header>
+
+        
+
+    <div id="A_Container_Wrap">
+        <div class="order_form">
+            <ul class="nav">
+                <li class="ic_home">Home</li>
+                <li>장바구니</li>
+                <li>주문/결제</li>
+            </ul>
+            <div class="sub_contents">
+                <div class="sub_tit">
+                    <h3>주문/결제</h3>
+                </div>
+                
+                <form name="ReadingInfoSelectForm" id="ReadingInfoSelectForm" method="post" enctype="multipart/form-data">
+                    <div class="order_pay">
+                        <h4 class="join_tit">주문 상품</h4>
+                        <div class="order_thum">
+                            <img class="order_pr" src="https://image.gift-n.net/mall/goods/0000045607.jpg">
+                            <div>
+                                <p class="title">스타벅스</p>
+                                <p class="product">고맙습니다-카페 아메리카노 T 2잔+부드러운 흑임자 롤</p>
+                                <p class="price">
+                                    <span class="pointmint">10% </span> <span>15,210원</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="order_pay01">
+                            <h4 class="join_tit">발신 정보</h4>
+                            <ul>
+                                <li>
+                                    <h5>발신 유형</h5>
+                                    <div class="flex">
+                                        <div>
+                                            <input type="radio" id="check_send" name="send_method">
+                                            <label for="check_send">즉시 발송</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="check_send_resev" name="send_method">
+                                            <label for="check_send_resev">예약 발송</label>
+
+                                            <input type="date">
+                                            <span class="wrap">
+                                                <label for="hourSelect"></label>
+                                                <select id="hourSelect"class="input">
+                                                    <option value="">시</option>
+                                                    <script>
+                                                        for (let i = 0; i < 24; i++) {
+                                                            let option = document.createElement("option");
+                                                            option.value = i;
+                                                            option.textContent = i;
+                                                            document.getElementById("hourSelect").appendChild(option);
+                                                        }
+                                                    </script>
+                                                </select>
+                                            </span>
+                                            <span class="wrap">
+                                                <label for="minuteSelect"></label>
+                                                <select id="minuteSelect" class="input">
+                                                    <option value="">분</option>
+                                                    <script>
+                                                        for (let i = 0; i < 60; i += 5) {
+                                                            let option = document.createElement("option");
+                                                            option.value = i;
+                                                            option.textContent = i;
+                                                            document.getElementById("minuteSelect").appendChild(option);
+                                                        }
+                                                    </script>
+                                                </select>
+                                            </span>
+                                        </div>
+                                    </div>                    
+
+                                </li>
+                                <li>
+                                    <h5 class="h5_withright">발신번호 <span class="right pointmint">발신번호세칙 <i class="fa-solid fa-circle-question"></i></span></h5>
+                                    
+                                    <div>
+                                        <input type="text" class="order_number" placeholder="발신 번호를 입력해 주세요" maxLength='11' onChange={handlePress}>
+                                        <p class="line_txt">
+                                            - 수신자에게 전송될 발신자 전화번호를 입력하세요.
+                                            - 미래부가 지정한 세칙 내용에 위반되는 경우 전송이 제한됩니다.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h5>문자내용</h5>
+                                    <div class="order_view">
+                                        <div class="order_view_tx">
+                                            <div>
+                                                <input type="text" class="typing_title" maxlength="20" placeholder="제목을 입력해주세요">
+                                                <span class="typing_title_num">0/20자</span>    
+                                            </div>
+                                            <div>
+                                                <textarea class="typing_txt" maxlength="200" placeholder="내용을 입력해 주세요." ></textarea>
+                                                <span class="typing_txt_num">0/200자</span>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn_wh">이전 문구 불러오기</button>                                        
+                                            </div>
+                                            <p>-태그 기호 및 특수문자 입력시 오류가 발생할 수 있습니다.</p>
+                                        </div>
+                                        <div class="order_view_ph">
+                                            <div class="order_view_line">
+                                                <div class="order_view_img">                                                
+                                                    <img src="">
+                                                </div>
+                                                <div class="order_view_con">
+                                                    <span class="pointmint order_view_title">제목을 입력해 주세요</span>
+                                                    <p class="order_view_txt">메시지 내용을 입력하시면 미리보기로 표시 됩니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                             </ul>                        
+                        </div>
+                        <div class="order_pay02">
+                            <h4 class="join_tit">수신 정보</h4>
+                            <h5>수신번호</h5>                        
+                            <div class="flex">
+                                <div>
+                                    <input type="radio" id="send_number10" name="send_num">
+                                    <label for="send_number10">직접 입력(최대 10건)</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="send_excel" name="send_num">
+                                    <label for="send_excel">엑셀 업로드</label>
+                                </div>  
+                            </div>
+                            <div class="order_pay02_1">
+                                <ul class="order_pay_list">
+                                    <li>
+                                        <span>1.</span> <input type="text">
+                                    </li>
+                                    <li>
+                                        <span>2.</span> <input type="text">
+                                    </li>
+                                    <li>
+                                        <span>3.</span> <input type="text">
+                                    </li>
+                                    <li>
+                                        <span>4.</span> <input type="text">
+                                    </li>
+                                    <li>
+                                        <span>5.</span> <input type="text">
+                                    </li>
+                                    <li>
+                                        <span>6.</span> <input type="text">
+                                    </li>
+                                    <li>
+                                        <span>7.</span> <input type="text">
+                                    </li>
+                                    <li>
+                                        <span>8.</span> <input type="text">
+                                    </li>
+                                    <li>
+                                        <span>9.</span> <input type="text">
+                                    </li>
+                                    <li>
+                                        <span>10.</span> <input type="text">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="order_pay02_2">
+                                <div class="order_file">
+                                    <div class="filebox">
+                                        <input class="upload-name" value="첨부파일" placeholder="첨부파일">
+                                        <label for="file">업로드</label> 
+                                        <input type="file" id="file">
+                                    </div>
+                                    <!-- <button type="button" class="btn_navy">업로드</button> -->
+                                    <button type="button" class="btn_wh">양식 다운로드</button>
+                                </div>
+                                <p>
+                                    - 엑셀파일 첫번째 시트 A열에 전화번호를 입력하세요. (시트명 : Sheet1 유지, 컬럼명 : A 유지, 확장자 : xls)
+                                    - 텍스트파일의 경우 - 없이 숫자만 입력 하십시요. (확장자 : txt)
+                                </p>
+                            </div>   
+                        </div>
+                        <script>
+                            $(function () {
+                              // 라디오 버튼 변경 시
+                              $('input[name="send_num"]').on('change', function () {
+                                if ($('#send_number10').is(':checked')) {
+                                  $('.order_pay02_1').show();
+                                  $('.order_pay02_2').hide();
+                                } else if ($('#send_excel').is(':checked')) {
+                                  $('.order_pay02_2').show();
+                                  $('.order_pay02_1').hide();
+                                }
+                              });
+                          
+                              // 페이지 로드시 기본값 반영 (선택된 라디오에 따라)
+                              $('input[name="send_num"]:checked').trigger('change');
+                            });
+                          </script>
+                        <div class="order_pay03">
+                            <input type="checkbox" class="blind" name="cate_price_2" id="cate_price_2">
+                            <label class="checkbox" for="cate_price_2">
+                                <div><span class="pointmint"> [필수]</span> 상품 및 수신자 정보 확인 완료 후 주문 진행에 동의 바랍니다<div class=""></div></div>
+                            </label>
+                            <p>
+                                발송정보저장된 내역은 마이페이지 임시보관 주문에서 확인 할 수 있습니다.
+                                발송비밀번호 오류시 고객센터 확인 후 임시보관 주문내역에서 발송을 진행 할 수 있습니다.
+                            </p>                        
+                        </div>
+                    </div>
+                    <input type="hidden" id="ord_cd" name="ord_cd" value="jtkyJ56Kkk+UMp8R8Hzg5Q==" />
+                    <input type="hidden" id="hd_mdnTable_length" name="hd_mdnTable_length" value="0" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="order_total">
+        <div class="order_total_width">
+            <div>
+                <span>상품 <span class="pointmint">1</span> 개 </span>
+                <span><span class="pointmint">0</span> 명 </span>
+            </div>
+            <div>
+                <span>총 결제 금액 </span>
+                <span class="total_price">0원 </span>
+            </div>
+            <button type="button" class="order_total_btn">결제하기</button>
+        </div>
+
+    </div>
+
+
+
+    <div class="quick_wrap">
+        <ul class="quick_btns">
+                    <li class="bizmoney">
+                        <a href="/Mypage/MypageCharge">
+                            <i class="main_icon icon1"></i>
+                            <div class="hide_box" onclick="javascript: document.location.href='/Mypage/MypageCharge'"><p>비즈머니</p><strong>137,490원</strong></div>
+                        </a>
+                    </li>
+
+            <li>
+                <a href="/Estimate/Estimate" title="온라인견적서">
+                    <i class="main_icon icon2"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/Mypage/MypageSendWaitList" title="임시보관주문">
+                    <i class="main_icon icon3"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/Brand/WishList" title="찜목록">
+                    <i class="main_icon icon4"></i>
+                </a>
+
+                
+
+            </li>
+        </ul>
+        <div class="quick_view">
+            <p class="tit">최근 본 상품</p>
+            <div class="quick_list">
+                        <div class="img_div">
+                        <a href="/Brand/GoodsDetail?gds_cd=0000045591">
+                            <img src="https://image.gift-n.net/mall/goods/0000045591.jpg" alt="">
+                        </a>
+                        </div>
+
+            </div>
+        </div>
+        <button type="button" class="top_btn" onclick="document.location.href='#';">TOP</button>
+    </div>
+
+
+    <footer class="foot">
+        <section class="foot_line1">
+            <h3><img src=""></h3>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+        <section class="foot_line2">
+            <ul>
+                <li>
+                    <a href="http://www.giftletter.co.kr/" target="_blank">회사소개</a>
+                </li>                    
+                <li>
+                    <a href="https://image.gift-n.net/gbm/files/biz_main/개인정보취급방침.docx">개인정보 처리방침</a>
+                </li>
+                <li>
+                    <a href="https://image.gift-n.net/gbm/files/biz_main/이용약관.docx">이용약관</a>
+                </li>
+            </ul>
+        </section>
+        <section class="foot_line3">                  
+            <p>
+                <span>기프트레터(주)</span>
+                <spa>서울 강남구 언주로 637 (논현동, 싸이칸타워) 8층</spa>
+            </p>
+            <p>
+                <span>사업자등록번호 : 220-88-57522</span>
+                <span>통신판매업신고 : 제2021-서울서초-01383호</span>
+            </p>                       
+            <p>
+                <span>고객센터 : 1600-4072</span>
+                <span>FAX : 02-6971-9513</span>
+                <span>E-mail :mkt@gift-n.co.kr </span>
+            </p> 
+        </section>
+        <section class="foot_line4">
+            <p>COPYRIGHT 2021 giftletter ALL RIGHTS RESERVED.</p>
+            <div>
+                <a href="https://pf.kakao.com/_iprdT"></a>
+                <a href="blog.naver.com/giftn777"></a>
+                <a href="https://www.facebook.com/profile.php?id=100063652562658#"></a>
+                <a href="https://www.instagram.com/giftletter/"></a>                    
+            </div>
+        </section>
+
+    </footer>
+
+    </div>
+
+    <script>
+        $(function () {
+            $(".bizmoney").mouseover(function () {
+                $(this).addClass('on');
+            });
+            $(".bizmoney").mouseleave(function () {
+                $(this).removeClass('on');
+            });
+        });
+
+        $(function () {
+            // 제목 입력 실시간 반영
+            $('.typing_title').on('input', function () {
+                const text = $(this).val();
+                const length = text.length;
+                $('.order_view_title').text(text || '제목을 입력해 주세요');
+                $('.typing_title_num').text(length + '/20자');
+            });
+
+            // 내용 입력 실시간 반영
+            $('.typing_txt').on('input', function () {
+                const text = $(this).val();
+                const length = text.length;
+                $('.order_view_txt').text(text || '메시지 내용을 입력하시면 미리보기로 표시 됩니다.');
+                $('.typing_txt_num').text(length + '/200자');
+            });
+
+            // 상품 이미지 최초 1회 반영
+            const productImg = $('.order_pr').attr('src');
+            if (productImg) {
+                $('.order_view_img img').attr('src', productImg);
+            }
+            });
+
+
+        $(function () {
+            //하단 체크박스 
+            $('.order_pay03 .checkbox').on('click', function () {
+            const $wrap = $(this).closest('.order_pay03');
+            $wrap.toggleClass('on');
+            });
+        });
+
+    </script>
+
+
+
+
+    <script src="/Lib/gijgo-combined-1.9.13/js/gijgo.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var fileTarget = $('.file_box .upload_hidden');
+            fileTarget.on('change', function () {
+                if (window.FileReader) {
+                    var filename = $(this)[0].files[0].name;
+                }
+                else {
+                    var filename = $(this).val().split('/').pop().split('\\').pop();
+                }
+                $(this).siblings('.upload_name').val(filename);
+            });
+
+            //$('#send_date').datepicker({
+            //    language: 'ko',
+            //    icons: {
+            //        rightIcon: "<span><img src='../images/sub/ic_calendar.png' alt='...' style='top:20%;right:20px;' /></span>"
+            //        //rightIcon: '<i class="material-icons" style="top:20%;right:20px;">date_range</i>'
+            //    },
+            //    format: "yyyy-mm-dd",
+            //    autoclose: true
+            //}).on('change', function () {
+            //    $('.datepicker').hide();
+            //});
+            var today;
+            today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+            $("#send_date").datepicker({
+                icons: {
+                    //rightIcon: '<i class="material-icons">date_range</i>'
+                    rightIcon: "<span style='top:20%;right:20px;'><img src='../images/sub/ic_calendar.png' alt='...'  /></span>"
+                }
+                , keyboardNavigation: true
+                , locale: 'kr-ko'
+                , header: true
+                , modal: false
+                , footer: false
+                , calendarWeeks: false
+                , format: "yyyy-mm-dd"
+            });
+
+
+        });
+
+        $("#opt_NumType")
+            .change(function () {
+                var str = "";
+                $("#opt_NumType option:selected").each(function () {
+                    str += $(this).text() + " ";
+                    if ($(this).val() == "1") {
+                        $("#div_NumType_Under").attr('style', 'display:block;');
+                        $("#div_NumType_Over").attr('style', 'display:none;');
+                    } else {
+                        $("#div_NumType_Under").attr('style', 'display:none;');
+                        $("#div_NumType_Over").attr('style', 'display:block;');
+                        //$("#div_NumType_Over").css("display", "block");
+                    }
+                });
+                $("#select_NumType").text(str);
+            })
+            .change();
+
+        $("#opt_SendType")
+            .change(function () {
+                $("#opt_SendType option:selected").each(function () {
+                    if ($(this).val() == "1") {
+                        //$("#div_SendType1").attr('style', 'display:block;');
+                        $("#div_SendType1").css("display", "none");
+                        $("#div_SendType2").css("display", "none");
+                        $("#div_SendType3").css("display", "none");
+                    } else {
+                        $("#div_SendType1").css("display", "inline-block");
+                        $("#div_SendType2").css("display", "inline-block");
+                        $("#div_SendType3").css("display", "inline-block");
+                        //$("#div_NumType_Over").css("display", "block");
+                    }
+                });
+
+
+            });
+
+        function fnMdnAppend() {
+            length = $("#hd_mdnTable_length").val();
+
+            if (length > 9) {
+                alert("10개 이하만 등록 가능합니다.");
+                return;
+            } else {
+                one = $("#mdnOne").val();
+                if (one == null || one == "") {
+                    alert("전화번호를 입력하세요.");
+                    $("#mdnOne").focus();
+                    return;
+                }
+                if ((one.length < 10) || (one.substring(0, 2) != '01')) {
+                    alert("올바른 전화번호를 입력하세요.");
+                    $("#mdnOne").focus();
+                    return;
+                }
+                //appendTr = "<li><input type='checkbox' id='mdnChk" + length + "' name='mdnChk' style='width:10px;height:10px;' value='" + one + "' />" + one + "</li>";
+                appendTr = "<div class='check_box' style='margin:5px;'><input id='mdnChk" + length + "' name='mdnChk' type='checkbox' name='terms' value='" + one + "' /><label for='mdnChk" + length + "'><span></span><p>" + one + "</p></label></div>";
+
+                $("#mdnTable").append(appendTr);
+                $("#mdnCount").html("&nbsp; + " + (Number(length) + 1) + "건");
+                $("#hd_mdnTable_length").val(Number(length) + 1);
+                $("#mdnOne").val("");
+
+            }
+        }
+
+        //mdn삭제
+        function fnMdnRemove() {
+            length = $("#hd_mdnTable_length").val();
+            chkCount = $("input:checkbox[name=mdnChk]:checked").size();
+            if (chkCount <= 0) {
+                alert("삭제할 번호를 선택하세요.");
+                return;
+            } else {
+                $("#hd_mdnTable_length").val(Number(length) - Number(chkCount));
+                $("input:checkbox[name=mdnChk]:checked").each(function (index) {
+                    $(this).parent().remove();
+                });
+                $("#mdnCount").html("&nbsp; + " + (Number(length) - Number(chkCount)) + "건");
+            }
+        }
+
+        //엑셀파일 등록
+        function FileEmpty(obj, ord_cd) {
+            //var file1 = $(obj);
+
+            //if (file1.get(0).files.length == 0) {
+            //    alert('첨부파일을 선택하세요.');
+            //    return false;
+            //}
+
+            //var formData = new FormData();
+            //var files = file1.get(0).files;
+            //if (files.length > 0) {
+            //    formData.append("file", files[0]);
+            //}
+            //formData.append("ord_cd", ord_cd);
+
+            var formData = new FormData();
+            var files1 = $('#upload').get(0).files;
+            if (files1.length > 0) {
+                formData.append("file", files1[0]);
+            }
+            formData.append("ord_cd", ord_cd);
+
+            $.ajax({
+                type: "POST",
+                url: "/Order/MdnUpload",
+                contentType: false,
+                processData: false,
+                cache: false,
+                data: formData,
+                enctype: "multipart/form-data",
+                success: function (status) {
+                    if (status.result_yn == 1) {
+                        var mdncount = status.mdncount;
+                        $("#btn_bsc").css("display", "none");
+                        $("#btn_success").css("display", "block");
+                        var row = "<span style='color:#333;font-size:16px;'>" + mdncount + "개의 수신자 번호가 등록되었습니다.</span>";
+                        $('#mdnresult').empty();
+                        $("#mdnresult").append(row);
+                        //등록된 전화번호 수
+                        $('#div_ExcelUpload').css("display", "none");
+                        var atcl_txt = "<span class='f_red'>+ 등록 수신자 번호 수 (" + mdncount + " 건)</span>";
+                        atcl_txt += "<input type='hidden' id='hd_mdnUpload_size' value='" + mdncount + "' />";
+                        $('#mdnUploadResult').html(atcl_txt);
+
+                    }
+                    else {
+                        var row = "<span style='color:#333;font-size:16px;'>등록에 실패했습니다. 파일을 확인하시기 바랍니다.</span>";
+                        $('#mdnresult').empty();
+                        $("#mdnresult").append(row);
+                    }
+                },
+                error: function (request, status, error) {
+                    alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+                }
+            });
+
+        }
+
+        //파일확장자명체크
+        function fileCheck(obj) {
+
+            var filePath = $(obj).val();
+
+            if (filePath == null || filePath == "") {
+                alert("이미지 형식의 파일을 선택하세요. (*.xlsx;*.xls)");
+                $(obj).val('');
+                return false;
+            }
+
+            var lastIndex = filePath.lastIndexOf(".");
+            var extension = filePath.substring(lastIndex + 1);
+
+            //형식이 gif,jpg,png
+            if (!((extension.toLowerCase() == "xlsx") || (extension.toLowerCase() == "xls"))) {
+                alert("해당 파일은 지원하지 않습니다.");
+                $(obj).val('');
+                return false;
+            }
+
+            //파일용량 체크
+            var filesize = obj.files[0].size;
+            var maxsize = 1024 * 1024;
+            if (filesize > maxsize) {
+                alert("파일용량 1MB를 초과했습니다.");
+                $(obj).val('');
+                return false;
+            }
+
+        }
+
+        //발송정보 저장을 위한 체크
+        function on_submit() {
+            //1.발송내역 체크
+            if (!isEmpty("txt_Send_Title", "발송제목을")) return false;
+            if (!isEmpty("txt_Send_Content", "발송내용을")) return false;
+
+            //발신자번호 표시제한 체크
+            var ret_tel = $('#txt_Return_Telnum').val();
+            if (!fnChkTelPattern(ret_tel)) return false;
+
+            //2.수신자번호 수량 체크
+            var formDataMdn = "";
+            var type = $("#opt_NumType").val();
+            var mdnCount = 0;
+
+            if (type == "1") {
+                if ($("input:checkbox[name=mdnChk]").size() == 0) {
+                    alert("전화번호를 입력하십시요.");
+                    return false;
+                }
+                //mdnFormData생성
+                $("input:checkbox[name=mdnChk]").each(function (index) {
+                    var id = "mdnChk" + index;
+                    var value = $("#" + id).val();
+                    formDataMdn += "&" + id + "=" + value;
+                });
+                mdnCount = $("#hd_mdnTable_length").val();
+            }
+            else if (type == "2") {
+                mdnCount = $("#hd_mdnUpload_size").val();
+                if (mdnCount == null || mdnCount < 1) {
+                    alert("전화번호를 등록하세요.");
+                    return false;
+                }
+                
+                if (mdnCount < 10) {
+                    alert("전화번호를 10건 이상 등록하세요");
+                    return false;
+                }
+                formDataMdn += "&hd_mdnUpload_size=" + mdnCount;
+            }
+            var formData = $("#ReadingInfoSelectForm").serialize();
+            formData += formDataMdn;
+
+            
+            
+            var IsSingleSendMode = 'Y';
+            if (IsSingleSendMode === "N") {
+                if (mdnCount < 5) {
+                    alert("최소 5건부터 등록할 수 있습니다.");
+                    return false;
+                }
+            }
+
+            //3.현재포인트로 등록된 전화번호 수량만큼 구매가 가능한지 여부를 체크
+            if (mdnCount > 1000) {
+                alert("최대 1,000건까지 등록할 수 있습니다.");
+                return false;
+            }
+
+            //4.동의
+            var save_agree = document.getElementById("save_agree");
+            if (save_agree.checked == false) {
+                alert('주문진행에 동의바랍니다.');
+                return false;
+            }
+
+            var r = confirm(mdnCount + "개의 수신자에 관한 발송정보를 저장하시겠습니까?");
+            if (r == false) {
+                alert("발송정보저장을 취소하였습니다.");
+                return false;
+            }
+
+            //문자내용 길이 체크 (400byte)
+            var content = document.getElementById("txt_Send_Content");
+            var str = content.value;
+            var str_len = str.length;
+            var rbyte = 0;
+            var one_char = "";
+            for (var i = 0; i < str_len; i++) {
+                one_char = str.charAt(i);
+                if (escape(one_char).length > 4) {
+                    rbyte += 2; //한글2Byte
+                } else {
+                    rbyte++; //영문 등 나머지 1Byte
+                }
+            }
+            if (rbyte > 400) {
+                alert('발송내용 길이가 400byte가 넘습니다.');
+                return false
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/Order/SendInfoSave",
+                cache: false,
+                data: formData,
+                success: onSuccessSendInfoSave,
+                error: onErrorSendInfoSave
+            });
+            function onSuccessSendInfoSave(result) {
+                if (result.result_yn == '1') {
+                    document.location.href = '/Order/OrderOk?ord_cd_enc=' + result.ord_cd;
+                }
+                else {
+                    alert(result.msg);
+                }
+            }
+
+            function onErrorSendInfoSave(data, status) {
+                alert("발송저장 에러");
+            }
+
+            return true;
+        }
+
+        function isEmpty(id, title) {
+            var msg = title + " 입력하시기 바랍니다.";
+            var value = $.trim($('#' + id).val());
+            if (value == '') {
+                alert(msg);
+                $('#' + id).focus();
+                return false;
+            }
+            return true;
+        }
+        //발신번호세칙 패턴 입력오류 체크
+        function fnChkTelPattern(ret_tel) {//return true인 경우만 허용되는 입력
+            var len = ret_tel.length;
+            var pre_3 = "";
+            var pre_2 = "";
+
+            //alert(ret_tel);
+            if (ret_tel == '') {
+                alert("회신번호로 공백을 사용할 수 없습니다.");
+                $('#txt_Return_Telnum').focus();
+                return false;
+            } else if (len == 12) {
+                pre_3 = ret_tel.substring(0, 3);
+                //alert(pre_3);
+                if (pre_3 == "030" || pre_3 == "050") {
+                    //030, 050 번호의 경우 12자리까지 허용
+                    return true;
+                }
+                alert("회신번호를 입력하세요.(8자리~11자리 숫자)");
+                $('#txt_Return_Telnum').focus();
+                return false;
+            } else if (len >= 8 && len <= 11) {//8-11자리수 수
+                pre_3 = ret_tel.substring(0, 3);
+                pre_2 = ret_tel.substring(0, 2);
+                //alert(pre_2);
+                //alert(pre_3);
+                if (pre_2 == "15" || pre_2 == "16" || pre_2 == "18") {
+                    if (len == 8) {
+                        //전국대표번호(15YY, 16YY, 18YY)는 8자리만 허용
+                        return true;
+                    }
+                    alert("전국대표번호(15YY, 16YY, 18YY)는 8자리만 허용됩니다.");
+                    $('#txt_Return_Telnum').focus();
+                    return false;
+                }
+
+                if (pre_2 == "02" || pre_3 == "031" || pre_3 == "032" || pre_3 == "033"
+                    || pre_3 == "041" || pre_3 == "042" || pre_3 == "043" || pre_3 == "044" || pre_3 == "049"
+                    || pre_3 == "051" || pre_3 == "052" || pre_3 == "053" || pre_3 == "054" || pre_3 == "055"
+                    || pre_3 == "061" || pre_3 == "062" || pre_3 == "063" || pre_3 == "064"
+                ) {
+                    //유선전화-지역번호 포함만 허용(18개)
+
+                    var sub_pre = "";
+                    if (pre_2 == "02") {
+                        sub_pre = ret_tel.substring(2, 4);
+                        if (len > 10) {
+                            alert("수신자가 실제 발신이 가능한 번호로 등록하세요.");
+                            $('#txt_Return_Telnum').focus();
+                            return false;
+                        }
+                        //alert(sub_pre);
+                    } else if (pre_3 == "031" || pre_3 == "032" || pre_3 == "033"
+                        || pre_3 == "041" || pre_3 == "042" || pre_3 == "043" || pre_3 == "044" || pre_3 == "049"
+                        || pre_3 == "051" || pre_3 == "052" || pre_3 == "053" || pre_3 == "054" || pre_3 == "055"
+                        || pre_3 == "061" || pre_3 == "062" || pre_3 == "063" || pre_3 == "064"
+                    ) {
+                        sub_pre = ret_tel.substring(3, 5);
+                        //alert(sub_pre);
+                    }
+                    if (sub_pre == "15" || sub_pre == "16" || sub_pre == "18") {
+                        //전국대표번호(15YY, 16YY, 18YY)는 8자리만 허용
+                        alert("전국대표번호(15YY, 16YY, 18YY)는 8자리만 허용됩니다.");
+                        $('#txt_Return_Telnum').focus();
+                        return false;
+                    }
+                    return true;
+                }
+
+
+                if (pre_3 == "010" || pre_3 == "011" || pre_3 == "016" || pre_3 == "017" || pre_3 == "018" || pre_3 == "019") {
+                    //이동통신전화-010,011,016,017,018,019
+                    if (len >= 10) {//구번호:10자리/신규번호11자리
+                        return true;
+                    }
+                }
+
+                if ((pre_2 == "06" || pre_2 == "07" || pre_2 == "08") || (pre_3 == "030" || pre_3 == "050")) {
+                    //0N0 계열
+                    return true;
+                }
+
+                alert("수신자가 실제 발신이 가능한 번호로 등록하세요.");
+                $('#txt_Return_Telnum').focus();
+                return false;
+            } else {
+                if (len < 8) {//7자리 이하
+                    alert("특수번호인 경우 해당사용자에 한해서만 사용 가능합니다.");
+                    $('#txt_Return_Telnum').focus();
+                    return false;
+                }
+                alert("회신번호를 입력하세요.(8자리~11자리 숫자)");
+                $('#txt_Return_Telnum').focus();
+                return false;
+            }
+
+            return false;
+        }
+
+
+
+    </script>
+
+    <script src="/Scripts/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".owl-carousel").owlCarousel();
+        });
+    </script>
+    <script>
+        $(document).on('ready', function () {
+            $(".quick_list").slick({
+                accessibility: false,
+                autoplay: false,
+                speed: 1000,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                dots: false,
+                vertical: true,
+                prevArrow: "<img src='/html/images/sub/amount_up.png' style='margin-bottom: 8px;'>",
+                nextArrow: "<img src='/html/images/sub/amount_down.png'>"
+            });
+
+            $("#searchtext").keypress(function (key) {
+                if (key.keyCode == 13) {
+                    key.preventDefault();
+                    fn_Search();
+                }
+            });
+        });
+
+        function fn_Search() {
+            var check_num = /[0-9]/; // 숫자
+            var check_eng = /[a-zA-Z]/; // 문자
+            var check_spc = /[~!@#$%^&*()_+|<>?:{}]/; // 특수문자
+            var check_kor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; // 한글체크
+            var searchtext = $("#searchtext").val();
+
+            if (searchtext == '' || searchtext == null) {
+                alert('입력된 검색어가 없습니다.');
+                return false;
+            }
+            if (!check_kor.test(searchtext) && !check_eng.test(searchtext)) {
+                alert("한글만 입력가능합니다.");
+                return false;
+            }
+            document.location.href = "https://www.gift-n.co.kr/Home/SearchList?searchtext=" + searchtext + "&pg=1&sort=1";
+
+        }
+    </script>
+
+    
+    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+    <script type="text/javascript">
+        if (!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "s_47141c1bd754";
+        if (!_nasa) var _nasa = {};
+        if (window.wcs) {
+            wcs.inflow("gift-n.co.kr");
+            wcs_do(_nasa);
+        }
+    </script>
+</body>
+</html>

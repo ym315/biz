@@ -1,0 +1,945 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>기프트엔 비즈몰</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <meta property="reply-to" content="" />
+    <meta name="author" content="GiftN" />
+    <meta property="copyright" content="" />
+    <meta name="robots" content="index,follow" />
+    <meta name="keywords" content="기업전용 모바일쿠폰, B2B대량발송, 기업이벤트 경품, 정기발송, 등급별 상시할인, 문자발송 서비스, 포인트몰 웹/모바일 API연동 제공, 모바일솔루션" />
+    <meta name="description" content="기업회원으로 등록하시면 상시 5%~10%할인 제공되며, 최대 20%까지 할인되는 이벤트도 활용해 보세요">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="기프트레터 비즈몰 (기프트엔, GiftN)입니다">
+    <meta property="og:description" content="기업회원으로 등록하시면 상시 5%~10%할인 제공되며, 최대 20%까지 할인되는 이벤트도 활용해 보세요">
+    <meta property="og:image" content="https://giftletter77.hgodo.com/com/sns_thum.png ">
+    <meta property="og:url" content="http://www.gift-n.co.kr">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+
+    <link rel="stylesheet" href="/_css/layout.css" />
+    <link rel="stylesheet" href="/_css/slick.css" />
+    <link rel="stylesheet" href="/_css/slick-theme.css" />
+
+
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/slick.js"></script>
+    <script type="text/javascript" src="/Scripts/js.cookie.js"></script>
+
+    <!-- s: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css"/> -->
+    <!-- <link rel="stylesheet" href="/_css/sub.css" /> -->
+    <script src="https://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/_css/common.css">
+
+    <script>
+        $(function () {
+            $("#slider-range").slider({
+                range: true,
+                min: 0,
+                max: 200000,
+                step: 100,
+                values: [0, 200000],
+                slide: function (event, ui) {
+                    $("#min").val(ui.values[0]);
+                    $("#max").val(ui.values[1]);
+                }
+            });
+            $("#min").val($("#slider-range").slider("values", 0));
+            $("#max").val($("#slider-range").slider("values", 1));
+        });
+
+        //On Click Event
+        $(document).ready(function () {
+
+            // //브랜드 탭 선택
+            // $("ul.cate_tab li").removeClass("on");
+            // $("#MCT00").addClass("on");
+
+
+            // //On Click Event
+            // $("ul.cate_tab li").click(function () {
+
+            //     //$("ul.cate_tab li").removeClass("on");
+            //     //$(this).addClass("on");
+
+            //     var id_value = $(this).attr('id');
+            //     document.location.href = "/Brand/Brand/" + id_value;
+
+            //     return true;
+            // });
+
+            //브랜드 선택
+
+            //검색
+            $(".btn_bk").click(function () {
+                select('1', '1');
+            });
+
+            //초기화
+            $(".btn_wh").click(function () {
+                $("#keyword").val("");
+                document.location.href = "/Brand/Brand/";
+                return true;
+            });
+
+            //키워드 검색
+            $(".btn_search").click(function () {
+                var keyword = $("#keyword").val();
+                if (keyword == '' || keyword == null) {
+                    alert('입력된 키워드가 없습니다.');
+                }
+                else {
+                    select('1', '1');
+                }
+            });
+
+            $("#keyword").keypress(function (key) {
+                if (key.keyCode == 13) {
+                    key.preventDefault();
+                    var keyword = $("#keyword").val();
+                    if (keyword == '' || keyword == null) {
+                        alert('입력된 키워드가 없습니다.');
+                    }
+                    else {
+                        select('1', '1');
+                    }
+                }
+            });
+
+        });
+
+        function fn_Sel(sort) {
+            $("#hd_page").val(sort);
+            select(sort, '1');
+        }
+
+        function fn_Page(cpage) {
+            var sort = $("#hd_page").val()
+            select(sort, cpage);
+        }
+
+        function comma(str) {
+            str = String(str);
+            return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+        }
+
+        function select(sort, cpage) {
+            var mct_cd = $('#hd_Mct').val();
+            var offset = $('#prd_list').offset(); //선택한 태그의 위치를 반환
+            var brand_cd = $('#hd_brand_cd').val();
+            var min = $('#min').val();
+            var max = $('#max').val();
+            var sel_count = $('#sel_count option:selected').val();
+            var keyword = $("#keyword").val();
+
+            $.ajax({
+                type: 'GET',
+                url: '/Brand/GetBrandItemList',
+                datatype: JSON,
+                data: {
+                    'mct_cd': mct_cd,
+                    'brand_cd': brand_cd,
+                    'min_price': min,
+                    'max_price': max,
+                    'keyword': keyword,
+                    'pagelen': sel_count,
+                    'sort': sort,
+                    'cpage': cpage
+                },
+                success: function (data) {
+                    var totcnt = 0;
+                    var totpage = 0;
+                    var pc_price = 0;
+
+                    $('#prd_list').empty();
+                    $.each(data, function (i, item) {
+                        if (i == 0) {
+                            totcnt = item.totcnt;
+                            totpage = item.totpage;
+                        }
+                        if (item.brand_cd == "173") {
+                            var rows = '<li><a href="/Brand/GoodsDetail?gds_cd=' + item.gds_cd + '"><div class="img_box"><img src="https://image.gift-n.net/mall/goods/' + item.gds_cd + '.jpg" /></div>' +
+                                '<div class="txt_box"><p><em>[' + item.brand_name + ']</em>' + item.gds_name + '</p><p><span class="b_price">' + comma(item.gds_price) + '원</span></p></div></a></li>';
+                            $('#prd_list').append(rows);
+                        }
+                        else {
+                            pc_price = item.gds_price * 0.9;
+                            var rows = '<li><a href="/Brand/GoodsDetail?gds_cd=' + item.gds_cd + '"><div class="img_box"><img src="https://image.gift-n.net/mall/goods/' + item.gds_cd + '.jpg" /></div>' +
+                                '<div class="txt_box"><p><em>[' + item.brand_name + ']</em>' + item.gds_name + '</p><p><span class="b_sale">~10%</span><span class="b_price">' + comma(pc_price) +
+                                '원</span><span class="b_nprice">' + comma(item.gds_price) + '원</span></p></div></a></li>';
+                            $('#prd_list').append(rows);
+                        }
+                    });
+                    $('#prd_list').focus();
+                    $('html').animate({ scrollTop: offset.top }, 400);
+
+                    $('#list_page').empty();
+                    if (totpage == 1) {
+                        var rows2 = '<a href="#" class="first_btn">Prev</a><ul><li class="active">1</li></ul><a href="#" class="last_btn">Next</a>';
+                        $('#list_page').append(rows2);
+                    } else if (totpage < 10) {
+                        var prev = '<a href="#" class="first_btn">Prev</a>';
+                        var middle = '';
+                        var next = '<a href="#" class="last_btn">Next</a>';
+                        var rows3 = ''
+                        for (var i = 1; i < totpage; i++) {
+                            if (cpage == i) {
+                                middle += '<li class="active"><a href="javascript:fn_Page(' + i + ');">' + i + '</a></li>'
+                            }
+                            else {
+                                middle += '<li><a href="javascript:fn_Page(' + i + ');">' + i + '</a></li>'
+                            }
+                        }
+                        rows3 = prev + '<ul>' + middle + '</ul>' + next;
+                        $('#list_page').append(rows3);
+                    } else {
+
+                        var pageFrom = parseInt((cpage - 1) / 10) * 10 + 1;
+                        var pageTo = totpage;
+                        if (totpage > pageFrom + 9) {
+                            pageTo = pageFrom + 9;
+                        }
+                        //이전 10개 표시
+                        var prev = '<a href="#" class="first_btn">Prev</a>';
+                        if (parseInt((cpage - 1) / 10) > 0) {
+                            prev = '<a href="javascript:fn_Page(' + ((+pageFrom) - 1) + ');" class="first_btn">Prev</a>';
+                        }
+
+                        //페이지 네비게이션
+                        var middle = '';
+                        var rows3 = ''
+                        for (var i = pageFrom; i <= pageTo; i++) {
+                            if (cpage == i) {
+                                middle += '<li class="active"><a href="javascript:fn_Page(' + i + ');">' + i + '</a></li>'
+                            }
+                            else {
+                                middle += '<li><a href="javascript:fn_Page(' + i + ');">' + i + '</a></li>'
+                            }
+                        }
+
+
+                        //다음 10개 표시
+                        var next = '<a href="#" class="last_btn">Next</a>';
+                        if (pageTo < totpage) {
+                            next = '<a href="javascript:fn_Page(' + ((+pageTo) + 1) + ');" class="last_btn">Next</a>';
+                        }
+
+                        //결합
+                        rows3 = prev + '<ul>' + middle + '</ul>' + next;
+                        $('#list_page').append(rows3);
+                    }
+
+
+                    $('#totcnt').empty();
+                    var rows4 = '<p>검색결과 <em>' + totcnt+ '</em>개</p>';
+                    $('#totcnt').append(rows4);
+
+                    //정렬순서 클레스 적용
+                    $('#sort1').removeClass("on");
+                    $('#sort3').removeClass("on");
+                    $('#sort4').removeClass("on");
+                    if (sort == "1")
+                        $('#sort1').addClass("on");
+                    else if (sort == "3")
+                        $('#sort3').addClass("on");
+                    else if (sort == "4")
+                        $('#sort4').addClass("on");
+
+                },
+                error: function (data) { }
+            });
+        }
+
+    </script>
+    <!-- e: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+</head>
+<body>
+
+
+
+
+    <div id="A_Wrap">
+        
+        <header class="head">
+            <article class="head_top">
+                <h1><a href="index.html"><img src="./images/common/black_logo.png"></a></h1>
+                <ul class="head_top_menu">
+                    <li>회원가입</li>
+                    <li>로그인</li>
+                    <li>홍길동님 <span class="pointmint">충전금 134,678원 </span></li>
+                    <li>장바구니<span class="cart_num">2</span></li>   
+                </ul>
+            </article>
+            <article class="head_menu">
+                <section>
+                    <ul class="head_menu_con">
+                        <li><a href="brand.html">브랜드샵</a></li>
+                        <li><a href="#">이벤트</a></li>
+                        <li><a href="#">온라인 견적서</a></li>
+                        <li>
+                            <a href="#">마이페이지</a>
+                            <ul class="head_menu_sub">
+                                <li><a href="/Mypage/Mypage">내정보관리</a></li>
+                                <li><a href="/Mypage/MypageCheck">회원정보관리</a></li>
+                                <li><a href="/Mypage/MypageSendList">발송내역관리</a></li>
+                                <li><a href="/Mypage/MypageCharge">충전금관리</a></li>
+                                <li><a href="/Mypage/MypageEstimate">상품견적관리</a></li>
+                                <li><a href="/Mypage/MypageMms">문자메시지관리</a></li>
+                                <li><a href="/Brand/WishList">찜목록관리</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">고객센터</a>
+                            <ul class="head_menu_sub">
+                                <li><a href="/Notice/Notice">공지사항</a></li>
+                                <li><a href="/Notice/Qna">1:1 문의</a></li>
+                                <li><a href="/Notice/Faq">자주하는 질문</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <script type="text/javascript">
+                        $(".head_menu_con > li").mouseover(function () {
+                            // $(this).children(".head_menu_sub").fadeIn(100);
+                            $(this).children(".head_menu_sub").stop().slideDown(300);
+                        });
+                        $(" .head_menu_con > li, .head_menu_sub").mouseleave(function () {
+                            $(this).children(".head_menu_sub").stop().slideUp(300);
+                        });
+                    </script>
+                    <div class="mainsearch">
+                        <input type="text" class="search_txt" id="searchtext" name="searchtext" placeholder="스타벅스 기프티콘" maxlength="20">
+                        <button type="button" class="search_btn" onclick="javascript: fn_Search();"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        
+                    </div>
+
+
+                    <!-- <div class="search_input">
+                        <input id="keyword" name="keyword" type="text" placeholder="결과 내 재 검색" />
+                        <button class="btn_search" type="button">검색</button>
+                    </div> -->
+                </section>
+            </article>
+    
+    
+        </header>
+        <div id="A_Container_Wrap">
+            <div class="inner">
+                <ul class="nav">
+                    <li class="ic_home">Home</li>
+                    <li>브랜드샵</li>
+                </ul>
+                <div class="sub_contents">
+                    <div class="sub_tit">
+                        <h3>브랜드샵</h3>
+                    </div>
+                    <div class="shop_wrap">
+                        <div class="select_box">
+                            <!-- <span class="filter-item"> </span>-->
+                        </div>
+                        <div class="brand_menu_search">
+                            <ul class="condition_set">
+                                <li class="cate_list cate_list01">
+                                    <h4>가격</h4>
+                                    <ul class="cate_select">
+                                        <li>
+                                            <input type="checkbox" class="blind" name="cate_price_2" id="cate_price_2">
+                                            <label for="cate_price_2">
+                                                <div>5천원 이하</div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" class="blind" name="cate_price_3" id="cate_price_3">
+                                            <label for="cate_price_3">
+                                                <div>5천원 ~ 1만원</div>
+                                            </label>
+                                            
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" class="blind" name="cate_price_4" id="cate_price_4">                                            
+                                            <label for="cate_price_4">
+                                                <div>1만원 ~ 3만원</div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" class="blind" name="cate_price_5" id="cate_price_5">
+                                            <label for="cate_price_5">
+                                                <div>3만원 ~ 5만원</div>
+                                            </label>
+                                            
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" class="blind" name="cate_price_6" id="cate_price_6">
+                                            <label for="cate_price_6">
+                                                <div>5만원이상</div>
+                                            </label>                                            
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="cate_list cate_list02">
+                                    <h4>카테고리</h4>
+                                    <ul class="cate_select cate_tab tab_menu">
+                                        <li data-tab="tab_all">
+                                            <input type="checkbox" class="blind" name="cate_1" id="cate_1">
+                                            <label for="cate_1">
+                                                <div>전체</div>
+                                            </label>
+                                        </li>
+                                        <li data-tab="tab01">
+                                            <input type="checkbox" class="blind" name="cate_2" id="cate_2">
+                                            <label for="cate_2">
+                                                <div>커피/음료</div>                                                    
+                                            </label>
+                                        </li>
+                                        <li data-tab="tab02">
+                                            <input type="checkbox" class="blind" name="cate_3" id="cate_3">
+                                            <label for="cate_3">
+                                                <div>아이스크림</div>
+                                            </label>
+                                        </li>
+                                        <li data-tab="tab03">
+                                            <input type="checkbox" class="blind" name="cate_4" id="cate_4">
+                                            <label for="cate_4">
+                                                <div>베이커리</div>                                                
+                                            </label>
+                                        </li>
+                                        <li data-tab="tab04">
+                                            <input type="checkbox" class="blind" name="cate_5" id="cate_5">
+                                            <label for="cate_5">
+                                                <div>피자/치킨</div>
+                                            </label>
+                                        </li>
+                                        <li data-tab="tab05">
+                                            <input type="checkbox" class="blind" name="cate_6" id="cate_6">
+                                            <label for="cate_6">
+                                                <div>패스트푸드</div>
+                                            </label>
+                                        </li>
+                                        <li data-tab="tab06">
+                                            <input type="checkbox" class="blind" name="cate_7" id="cate_7">
+                                            <label for="cate_7">
+                                                <div>외식</div>
+                                            </label>
+                                        </li>
+                                        <li data-tab="tab07">
+                                            <input type="checkbox" class="blind" name="cate_8" id="cate_8">
+                                            <label for="cate_8">
+                                                <div>편의점</div>
+                                            </label>
+                                        </li>
+                                        <li data-tab="tab08">
+                                            <input type="checkbox" class="blind" name="cate_9" id="cate_9">
+                                            <label for="cate_9">
+                                                <div>상품권/문화</div>
+                                            </label>
+                                        </li>
+                                        <li data-tab="tab09">
+                                            <input type="checkbox" class="blind" name="cate_10" id="cate_10">
+                                            <label for="cate_10">
+                                                <div>레스토랑</div>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </li>
+    
+                                <li class="cate_list cate_brand">
+                                    <h4>브랜드</h4>
+                                    <input type="hidden" id="hd_Mct_Cd" name="hd_Mct_Cd" value="MCT00" />
+                                    <ul class="con_box tab_all"></ul>
+                                    <ul class="con_box tab01">
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/308.jpg" /><span>공차</span></a></li>
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/619.jpg" /><span>더벤티</span></a></li>
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/656.jpg" /><span>매머드익스프레스</span></a></li>
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/662.jpg" /><span>메가커피</span></a></li>
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/516.jpg" /><span>빽다방</span></a></li>
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/714.jpg" /><span>스타벅스</span></a></li>
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/506.jpg" /><span>앤티앤스</span></a></li>
+                                    </ul>
+                                    <ul class="con_box tab02">                                        
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/619.jpg" /><span>더벤티</span></a></li>
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/656.jpg" /><span>매머드익스프레스</span></a></li>
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/662.jpg" /><span>메가커피</span></a></li>
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/516.jpg" /><span>빽다방</span></a></li>
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/714.jpg" /><span>스타벅스</span></a></li>
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/506.jpg" /><span>앤티앤스</span></a></li>
+                                    </ul>
+                                    <ul class="con_box tab03">                                        
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/413.jpg" /><span>배스킨라빈스</span></a></li>                                       
+                                    </ul>
+                                    <ul class="con_box tab04">                                        
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/658.jpg" /><span>던킨</span></a></li>
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/339.jpg" /><span>뚜레쥬르</span></a></li>
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/710.jpg" /><span>복호두</span></a></li>
+                                        <li id=""><a href="#"><img src="https://image.gift-n.net/template_v1/brand/660.jpg" /><span>파리바게뜨</span></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="brand_menu_btn">                            
+                                <button class="btn_reset" type="button">초기화 <i class="fa-solid fa-rotate-right"></i></button>
+                                <button class="btn_search btn_mint" type="button">상품 검색</button>
+                            </div>
+                            <script>
+                            $(function () {
+
+                                    $('.cate_brand .con_box').hide();
+                                    $('.cate_brand .tab_all').css('display', 'flex');
+                                    $('.tab_menu li[data-tab="tab_all"]').addClass('on');
+                                    
+                                    $('.tab_menu li').on('click', function () {
+                                        const tabId = $(this).data('tab'); 
+
+                                        // 탭 활성화 표시
+                                        $('.tab_menu li').removeClass('on');
+                                        $(this).addClass('on');
+
+                                        // con_box 숨기기 
+                                        $('.cate_brand .con_box').hide();
+                                        $('.cate_brand .' + tabId).css('display', 'flex');
+                                    });
+
+                                    /* ---------- 가격 선택 시 filter-item 추가 ---------- */
+                                    $('.cate_list01 .cate_select input[type="checkbox"]').on('change', function () {
+                                        const $li = $(this).closest('li');
+                                        const text = $li.find('label > div').text();
+                                        const $selectBox = $('.select_box');
+
+                                        if (this.checked) {
+                                        $selectBox.append(`<span class="filter-item" data-type="price" data-text="${text}">${text}</span>`);
+                                        } else {
+                                        $selectBox.find(`.filter-item[data-type="price"][data-text="${text}"]`).remove();
+                                        }
+
+                                        $li.toggleClass('on', this.checked);
+                                    });
+
+                                    /* ---------- 카테고리 단일 선택 시 filter-item 교체 ---------- */
+                                    const $catInputs = $('.cate_list02 .cate_select input[type="checkbox"]');
+
+                                    $catInputs.on('change', function () {
+                                        const $clicked = $(this);
+                                        const text = $clicked.closest('li').find('label > div').text();
+                                        const $selectBox = $('.select_box');
+
+                                        $selectBox.find('.filter-item[data-type="category"]').remove();
+                                        $selectBox.append(`<span class="filter-item" data-type="category" data-text="${text}">${text}</span>`);
+
+                                        $catInputs.prop('checked', false).closest('li').removeClass('on');
+                                        $clicked.prop('checked', true).closest('li').addClass('on');
+                                    });
+
+                                    /* ---------- 브랜드 선택 시 filter-item 추가 ---------- */
+                                    $('.cate_brand .con_box').on('click', 'li', function (e) {
+                                        e.preventDefault();
+                                        const brandName = $(this).find('span').text();
+                                        const $selectBox = $('.select_box');
+
+                                        $('.cate_brand .con_box li').removeClass('on');
+                                        $(this).addClass('on');
+
+                                        $('#hd_Mct_Cd').val($(this).attr('id'));
+
+                                        $selectBox.find('.filter-item[data-type="brand"]').remove();
+                                        $selectBox.append(`<span class="filter-item" data-type="brand" data-text="${brandName}">${brandName}</span>`);
+                                    });
+
+                                    /* ---------- filter-item 클릭 시 해당 필터 해제 ---------- */
+                                    $('.select_box').on('click', '.filter-item', function () {
+                                        const $item = $(this);
+                                        const type = $item.data('type');
+                                        const text = $item.data('text');
+
+                                        if (type === 'price') {
+                                        $('.cate_list01 .cate_select li').each(function () {
+                                            const $li = $(this);
+                                            if ($li.find('label > div').text() === text) {
+                                            $li.removeClass('on').find('input[type="checkbox"]').prop('checked', false);
+                                            }
+                                        });
+                                        } else if (type === 'category') {
+                                        $('.cate_list02 .cate_select li').removeClass('on').find('input[type="checkbox"]').prop('checked', false);
+                                        } else if (type === 'brand') {
+                                        $('.cate_brand .con_box li').removeClass('on');
+                                        $('#hd_Mct_Cd').val('MCT00');
+                                        }
+
+                                        $item.remove();
+                                    });
+
+                                    /* ---------- 필터 초기화 버튼 ---------- */
+                                    $('.btn_reset').on('click', function () {
+                                        // 필터 아이템 모두 제거
+                                        $('.select_box .filter-item').remove();
+
+                                        // 가격 초기화
+                                        $('.cate_list01 .cate_select li').removeClass('on').find('input[type="checkbox"]').prop('checked', false);
+
+                                        // 카테고리 초기화
+                                        $('.cate_list02 .cate_select li').removeClass('on').find('input[type="checkbox"]').prop('checked', false);
+
+                                        // 브랜드 초기화
+                                        $('.cate_brand .con_box li').removeClass('on');
+                                        $('#hd_Mct_Cd').val('MCT00');
+                                    });
+
+                                    /* ---------- 페이지 진입 시 기본 탭 보이기 (전체 탭이 있으면 전체 먼저 보여줌) ---------- */
+                                    const $defaultTab = $('.tab_menu li[data-tab="tab_all"]');
+                                    if ($defaultTab.length) {
+                                        $defaultTab.addClass('on');
+                                        $('.cate_brand .con_box').hide();
+                                        $('.cate_brand .tab_all').css('display', 'flex');
+                                    } else {
+                                        $('.tab_menu li[data-tab="tab01"]').addClass('on');
+                                        $('.cate_brand .con_box').hide();
+                                        $('.cate_brand .tab01').css('display', 'flex');
+                                    }
+
+                                    const $allTabBox = $('.cate_brand .tab_all');
+                                    $allTabBox.empty(); 
+
+                                    $('.cate_brand .con_box').each(function () {
+                                    const $box = $(this);
+
+                                    // tab_all 자신은 건너뜀
+                                    if (!$box.hasClass('tab_all')) {
+                                        $box.children('li').clone().appendTo($allTabBox);
+                                    }
+                                    });
+
+
+                                });
+                          </script>
+                        </div>
+                       
+                        <div class="board_top">
+                            <div id="totcnt"></div>
+
+                            <div class="brand_top_info">
+
+                            
+                            <span>총 <span class="pointmint">10</span>개</span>
+                            <div class="brand_info_top_right">
+                                <div class="search_input">
+                                    <input id="keyword" name="keyword" type="text" placeholder="결과 내 재 검색" />
+                                    <button class="btn_search" type="button">검색</button>
+                                </div>
+                                <ul>
+                                    <li id="sort1"><a href="javascript:fn_Sel('1');">인기상품순</a></li>
+                                    <li id="sort3"><a href="javascript:fn_Sel('3');">낮은가격순</a></li>
+                                    <li id="sort4"><a href="javascript:fn_Sel('4');">높은가격순</a></li>
+                                </ul>
+                                <select id="sel_count">
+                                    <option value="20">20개씩 보기</option>
+                                    <option value="40">40개씩 보기</option>
+                                </select>
+                            </div>
+                            </div>
+     
+                            
+                            
+
+                        </div>
+                        <ul id="prd_list" class="prd_list">
+                            <li>
+                                <a href="/Brand/GoodsDetail?gds_cd=0000036096">
+                                    <div class="img_box">
+                                        <img src="https://image.gift-n.net/mall/goods/0000036096.jpg">
+                                    </div>
+                                    <div class="txt_box">
+                                            <p>
+                                                <em>공차</em>
+                                                투썸 떠먹는 스트로베리 초콜릿 생크림 아메리카노
+                                            </p>
+                                            <p class="txt_box_price">
+                                                    <span class="b_sale">10%</span> 
+                                                    <span class="b_price">4,050원</span>
+                                                    <span class="b_nprice">4,500원</span>
+                                            </p>
+                                     </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Brand/GoodsDetail?gds_cd=0000036096">
+                                    <div class="img_box">
+                                        <img src="https://image.gift-n.net/mall/goods/0000036096.jpg">
+                                    </div>
+                                    <div class="txt_box">
+                                            <p>
+                                                <em>공차</em>
+                                                투썸 떠먹는 스트로베리 초콜릿 생크림 아메리카노
+                                            </p>
+                                            <p class="txt_box_price">
+                                                    <span class="b_sale">10%</span> 
+                                                    <span class="b_price">4,050원</span>
+                                                    <span class="b_nprice">4,500원</span>
+                                            </p>
+                                     </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Brand/GoodsDetail?gds_cd=0000036096">
+                                    <div class="img_box">
+                                        <img src="https://image.gift-n.net/mall/goods/0000036096.jpg">
+                                    </div>
+                                    <div class="txt_box">
+                                            <p>
+                                                <em>공차</em>
+                                                투썸 떠먹는 스트로베리 초콜릿 생크림 아메리카노
+                                            </p>
+                                            <p class="txt_box_price">
+                                                    <span class="b_sale">10%</span> 
+                                                    <span class="b_price">4,050원</span>
+                                                    <span class="b_nprice">4,500원</span>
+                                            </p>
+                                     </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Brand/GoodsDetail?gds_cd=0000036096">
+                                    <div class="img_box">
+                                        <img src="https://image.gift-n.net/mall/goods/0000036096.jpg">
+                                    </div>
+                                    <div class="txt_box">
+                                            <p>
+                                                <em>공차</em>
+                                                투썸 떠먹는 스트로베리 초콜릿 생크림 아메리카노
+                                            </p>
+                                            <p class="txt_box_price">
+                                                    <span class="b_sale">10%</span> 
+                                                    <span class="b_price">4,050원</span>
+                                                    <span class="b_nprice">4,500원</span>
+                                            </p>
+                                     </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Brand/GoodsDetail?gds_cd=0000036096">
+                                    <div class="img_box">
+                                        <img src="https://image.gift-n.net/mall/goods/0000036096.jpg">
+                                    </div>
+                                    <div class="txt_box">
+                                            <p>
+                                                <em>공차</em>
+                                                투썸 떠먹는 스트로베리 초콜릿 생크림 아메리카노
+                                            </p>
+                                            <p class="txt_box_price">
+                                                    <span class="b_sale">10%</span> 
+                                                    <span class="b_price">4,050원</span>
+                                                    <span class="b_nprice">4,500원</span>
+                                            </p>
+                                     </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Brand/GoodsDetail?gds_cd=0000036096">
+                                    <div class="img_box">
+                                        <img src="https://image.gift-n.net/mall/goods/0000036096.jpg">
+                                    </div>
+                                    <div class="txt_box">
+                                            <p>
+                                                <em>공차</em>
+                                                투썸 떠먹는 스트로베리 초콜릿 생크림 아메리카노
+                                            </p>
+                                            <p class="txt_box_price">
+                                                    <span class="b_sale">10%</span> 
+                                                    <span class="b_price">4,050원</span>
+                                                    <span class="b_nprice">4,500원</span>
+                                            </p>
+                                     </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Brand/GoodsDetail?gds_cd=0000036096">
+                                    <div class="img_box">
+                                        <img src="https://image.gift-n.net/mall/goods/0000036096.jpg">
+                                    </div>
+                                    <div class="txt_box">
+                                            <p>
+                                                <em>공차</em>
+                                                투썸 떠먹는 스트로베리 초콜릿 생크림 아메리카노
+                                            </p>
+                                            <p class="txt_box_price">
+                                                    <span class="b_sale">10%</span> 
+                                                    <span class="b_price">4,050원</span>
+                                                    <span class="b_nprice">4,500원</span>
+                                            </p>
+                                     </div>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                        <div class="brand_more">
+                            <button class="btn">더보기<span class="brand_more_co"><span>25</span> / <span>93</span> </span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <input type="hidden" id="hd_brand_cd" name="hd_brand_cd" />
+        <input type="hidden" id="hd_page" name="hd_page" value="1" />
+        <input type="hidden" id="hd_Mct" name="hd_Mct" value="MCT00"/>
+        <footer class="foot">
+            <section class="foot_line1">
+                <h3><img src=""></h3>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </section>
+            <section class="foot_line2">
+                <ul>
+                    <li>
+                        <a href="http://www.giftletter.co.kr/" target="_blank">회사소개</a>
+                    </li>                    
+                    <li>
+                        <a href="https://image.gift-n.net/gbm/files/biz_main/개인정보취급방침.docx">개인정보 처리방침</a>
+                    </li>
+                    <li>
+                        <a href="https://image.gift-n.net/gbm/files/biz_main/이용약관.docx">이용약관</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="foot_line3">                  
+                <p>
+                    <span>기프트레터(주)</span>
+                    <spa>서울 강남구 언주로 637 (논현동, 싸이칸타워) 8층</spa>
+                </p>
+                <p>
+                    <span>사업자등록번호 : 220-88-57522</span>
+                    <span>통신판매업신고 : 제2021-서울서초-01383호</span>
+                </p>                       
+                <p>
+                    <span>고객센터 : 1600-4072</span>
+                    <span>FAX : 02-6971-9513</span>
+                    <span>E-mail :mkt@gift-n.co.kr </span>
+                </p> 
+            </section>
+            <section class="foot_line4">
+                <p>COPYRIGHT 2021 giftletter ALL RIGHTS RESERVED.</p>
+                <div>
+                    <a href="https://pf.kakao.com/_iprdT"></a>
+                    <a href="blog.naver.com/giftn777"></a>
+                    <a href="https://www.facebook.com/profile.php?id=100063652562658#"></a>
+                    <a href="https://www.instagram.com/giftletter/"></a>                    
+                </div>
+            </section>
+    
+        </footer>
+    </div>
+
+    
+
+    <script>
+        $(function () {
+            $(".bizmoney").mouseover(function () {
+                $(this).addClass('on');
+            });
+            $(".bizmoney").mouseleave(function () {
+                $(this).removeClass('on');
+            });
+        });
+    </script>
+
+
+
+
+
+    <script type="text/javascript">
+        function fnSelect() {
+            var min = $("#min").val();
+            var max = $("#max").val();
+
+            alert(min);
+            alert(max);
+        }
+
+
+        // function BrandClick() {
+
+        //     var mct_cd = $("#hd_Mct_Cd").val();
+
+        //     $.ajax({
+        //         url: '/Brand/Brand',
+        //         contentType: 'application/json; charset=utf-8',
+        //         data: {
+        //             mct_cd: mct_cd
+        //         },
+        //         type: 'GET'
+        //     })
+        //         .success(function (result) {
+
+        //         })
+        //         .error(function (xhr, status) {
+        //             alert('잠시후 이용바랍니다..');
+        //         })
+        // }
+
+    </script>
+
+
+    <script src="/Scripts/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".owl-carousel").owlCarousel();
+        });
+    </script>
+    <script>
+        $(document).on('ready', function () {
+            $(".quick_list").slick({
+                accessibility: false,
+                autoplay: false,
+                speed: 1000,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                dots: false,
+                vertical: true,
+                prevArrow: "<img src='/html/images/sub/amount_up.png' style='margin-bottom: 8px;'>",
+                nextArrow: "<img src='/html/images/sub/amount_down.png'>"
+            });
+
+            $("#searchtext").keypress(function (key) {
+                if (key.keyCode == 13) {
+                    key.preventDefault();
+                    fn_Search();
+                }
+            });
+        });
+
+        function fn_Search() {
+            var check_num = /[0-9]/; // 숫자
+            var check_eng = /[a-zA-Z]/; // 문자
+            var check_spc = /[~!@#$%^&*()_+|<>?:{}]/; // 특수문자
+            var check_kor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; // 한글체크
+            var searchtext = $("#searchtext").val();
+
+            if (searchtext == '' || searchtext == null) {
+                alert('입력된 검색어가 없습니다.');
+                return false;
+            }
+            if (!check_kor.test(searchtext) && !check_eng.test(searchtext)) {
+                alert("한글만 입력가능합니다.");
+                return false;
+            }
+            document.location.href = "http://www.gift-n.co.kr/Home/SearchList?searchtext=" + searchtext + "&pg=1&sort=1";
+
+        }
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-52BP3RJ3TF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-52BP3RJ3TF');
+    </script>
+
+</body>
+</html>

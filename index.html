@@ -1,0 +1,1224 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>기프트엔 비즈몰</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <meta property="reply-to" content="" />
+    <meta name="author" content="GiftN" />
+    <meta property="copyright" content="" />
+    <meta name="robots" content="index,follow" />
+    <meta name="keywords" content="기업전용 모바일쿠폰, B2B대량발송, 기업이벤트 경품, 정기발송, 등급별 상시할인, 문자발송 서비스, 포인트몰 웹/모바일 API연동 제공, 모바일솔루션" />
+    <meta name="description" content="기업회원으로 등록하시면 상시 5%~10%할인 제공되며, 최대 20%까지 할인되는 이벤트도 활용해 보세요">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="기프트레터 비즈몰 (기프트엔, GiftN)입니다">
+    <meta property="og:description" content="기업회원으로 등록하시면 상시 5%~10%할인 제공되며, 최대 20%까지 할인되는 이벤트도 활용해 보세요">
+    <meta property="og:image" content="https://giftletter77.hgodo.com/com/sns_thum.png ">
+    <meta property="og:url" content="http://www.gift-n.co.kr">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+
+
+    <link rel="stylesheet" href="/_css/layout.css" />
+    <link rel="stylesheet" href="/_css/slick.css" />
+    <link rel="stylesheet" href="/_css/slick-theme.css" />
+    <link rel="stylesheet" href="/_css/common.css">
+
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/slick.js"></script>
+    <script src="/Scripts/js.cookie.js"></script>
+
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+
+    <link rel="stylesheet" type="text/css" href="./slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script type="text/javascript">
+    var posY;
+    $(document).ready(function () {
+        //Default Action
+        $(".tab_content").hide(); //Hide all content
+        $("ul.best_tab li:first").addClass("on").show(); //Activate first tab
+        $(".tab_content:first").show(); //Show first tab content
+        //On Click Event
+        $("ul.best_tab li").click(function () {
+            $("ul.best_tab li").removeClass("on"); //Remove any "active" class
+            $(this).addClass("on"); //Add "active" class to selected tab
+            $(".tab_content").hide(); //Hide all tab content
+            var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+            $(activeTab).fadeIn(); //Fade in the active content
+            return false;
+        });
+        
+        $(".tab_content02").hide(); //Hide all content
+        $("ul.brand_tab li:first").addClass("on").show(); //Activate first tab
+        $(".tab_content02:first").show(); //Show first tab content
+
+        //On Click Event
+        $("ul.brand_tab li").click(function () {
+            $("ul.brand_tab li").removeClass("on"); //Remove any "active" class
+            $(this).addClass("on"); //Add "active" class to selected tab
+
+            $(".tab_content02").hide(); //Hide all tab content
+            $(".banner_slide").slick("setPosition");
+            var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+            $(activeTab).fadeIn(); //Fade in the active content
+            return false;
+        });
+
+
+        $('.buttons li').click(function () {
+            var $this = $(this);
+            var index = $this.index();
+
+            $this.addClass('active');
+            $this.siblings('.buttons li.active').removeClass('active');
+
+            var $outer = $this.closest('.outer');
+            var $current = $outer.find(' > .tabs > .tab.active');
+            var $post = $outer.find(' > .tabs > .tab').eq(index);
+
+            $current.removeClass('active');
+            $post.addClass('active');
+            // 위의 코드는 탭메뉴 코드입니다.
+
+            $('.slider').slick('setPosition');
+            // 탭 페이지 안에서 slick 사용시 – slick이 첫페이지에 있지 않으면 slick의 첫번째 이미지가 보이지 않고 2번째 부터 도는것을 확인 할 수 있다. 
+            // 해당 문제는 탭이 active가 된 후 그 페이지에 slick이 있다면 = slick의 위치를 수동으로 새로 고쳐줘야 한다.
+        });
+
+        // 기존 처음의 slick 적용
+        $('.slider').slick({
+            accessibility: false,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            speed: 1000,
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            dots: false,
+        });
+
+
+    });
+
+</script>
+
+</head>
+<body>
+
+   <div id="A_Wrap">
+    <header class="head">
+        <article class="head_top">
+            <h1><a href="#"><img src="./images/common/black_logo.png"></a></h1>
+            <ul class="head_top_menu">
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">홍길동님</a> <span class="pointmint">충전금 134,678원 </span></li>
+                <li><a href="#">장바구니</a><span class="cart_num">2</span></li>   
+            </ul>
+        </article>
+        <article class="head_menu">
+            <section>
+                <ul class="head_menu_con">
+                    <li><a href="brand.html">브랜드샵</a></li>
+                    <li><a href="#">이벤트</a></li>
+                    <li><a href="#">온라인 견적서</a></li>
+                    <li>
+                        <a href="#">마이페이지</a>
+                        <ul class="head_menu_sub">
+                            <li><a href="/Mypage/Mypage">내정보관리</a></li>
+                            <li><a href="/Mypage/MypageCheck">회원정보관리</a></li>
+                            <li><a href="/Mypage/MypageSendList">발송내역관리</a></li>
+                            <li><a href="/Mypage/MypageCharge">충전금관리</a></li>
+                            <li><a href="/Mypage/MypageEstimate">상품견적관리</a></li>
+                            <li><a href="/Mypage/MypageMms">문자메시지관리</a></li>
+                            <li><a href="/Brand/WishList">찜목록관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">고객센터</a>
+                        <ul class="head_menu_sub">
+                            <li><a href="/Notice/Notice">공지사항</a></li>
+                            <li><a href="/Notice/Qna">1:1 문의</a></li>
+                            <li><a href="/Notice/Faq">자주하는 질문</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="ApplyOrder.html">주문결제 확인</a></li>
+                </ul>
+                <script type="text/javascript">
+                    $(".head_menu_con > li").mouseover(function () {
+                        // $(this).children(".head_menu_sub").fadeIn(100);
+                        $(this).children(".head_menu_sub").stop().slideDown(300);
+                    });
+                    $(" .head_menu_con > li, .head_menu_sub").mouseleave(function () {
+                        $(this).children(".head_menu_sub").stop().slideUp(300);
+                    });
+                </script>
+                <div class="mainsearch">
+                    <input type="text" class="search_txt" id="searchtext" name="searchtext" placeholder="스타벅스 기프티콘" maxlength="20">
+                    <button type="button" class="search_btn" onclick="javascript: fn_Search();"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    
+                </div>
+
+
+                <!-- <div class="search_input">
+                    <input id="keyword" name="keyword" type="text" placeholder="결과 내 재 검색" />
+                    <button class="btn_search" type="button">검색</button>
+                </div> -->
+            </section>
+        </article>
+
+
+    </header>
+
+      <main class="main2">
+
+         <article class="main_banners">
+             <div>
+                 <img src="./images/main/main_banner01.jpg" alt="main_banner_event">
+             </div>
+             <div>
+                 <img src="./images/main/main_banner01.jpg" alt="main_banner_event">
+             </div>  
+         </article>
+
+        <!-- 카테고리 -->
+         <article>            
+            <section class="main_proposal">
+                <div class="main_proposal_cate">
+                    <h4>카테고리</h4>
+                    <ul class="main_proposal_cate_detail">                    
+                        <li data-tab="cate1" class="active"><a href="#"><span><i></i>커피/음료</span></a></li>
+                        <li data-tab="cate2"><a href="#"><i></i>아이스크림</a></li>
+                        <li data-tab="cate3"><a href="#"><i></i>베이커리</a></li>
+                        <li data-tab="cate4"><a href="#"><i></i>피자/치킨</a></li>
+                        <li data-tab="cate5"><a href="#"><i></i>패스트푸드</a></li>
+                        <li data-tab="cate6"><a href="#"><i></i>외식</a></li>
+                        <li data-tab="cate7"><a href="#"><i></i>편의점</a></li>
+                        <li data-tab="cate8"><a href="#"><i></i>상품권/문화</a></li>
+                        <li data-tab="cate9"><a href="#"><i></i>레스토랑</a></li>
+                    </ul>
+                </div>   
+                <div class="main_proposal_brand">
+                    <h4>브랜드</h4>    
+                    <ul class="main_proposal_brand_detail" data-tab="cate1">                        
+                        <li data-tab="brand-starbucks">
+                            <img src="https://image.gift-n.net/template_v1/brand/714.jpg">
+                            <p>스타벅스</p>
+                        </li>
+                        <li data-tab="brand-venti">
+                            <img src="https://image.gift-n.net/template_v1/brand/619.jpg">
+                            <p>더벤티</p>
+                        </li>
+                        <li>
+                            <img src="https://image.gift-n.net/template_v1/brand/656.jpg">
+                            <p>매머드익스프레스</p>
+                        </li>
+                        <li>
+                            <img src="https://image.gift-n.net/template_v1/brand/662.jpg">
+                            <p>메가커피</p>
+                        </li>                 
+                    </ul>
+                    <ul class="main_proposal_brand_detail" data-tab="cate2">                        
+                        <li data-tab="brand-baskin">
+                            <img src="https://image.gift-n.net/template_v1/brand/413.jpg">
+                            <p>배스킨라빈스</p>
+                        </li>                       
+                    </ul>
+                    <ul class="main_proposal_brand_detail" data-tab="cate3">                        
+                        <li data-tab="brand-dunkin">
+                            <img src="https://image.gift-n.net/template_v1/brand/658.jpg">
+                            <p>던킨</p>
+                        </li>                       
+                        <li data-tab="brand-tousjour">
+                            <img src="https://image.gift-n.net/template_v1/brand/339.jpg">
+                            <p>뚜레쥬르</p>
+                        </li>                       
+                        <li>
+                            <img src="https://image.gift-n.net/template_v1/brand/710.jpg">
+                            <p>복호두</p>
+                        </li>        
+                        <li>
+                            <img src="https://image.gift-n.net/template_v1/brand/660.jpg">
+                            <p>파리바게뜨</p>
+                        </li>                                      
+                    </ul>
+
+                </div>
+                <div class="main_proposal_pro">
+                    <h4>상품</h4>
+                    <ul class="main_proposal_pro_detail" data-tab="brand-starbucks">                    
+                        <li>
+                            <div><img src="https://image.gift-n.net/mall/goods/0000045607.jpg"></div>
+                            <div class="pr">고맙습니다-카페 아메리카노 T 2잔+부드러운 흑임자 롤</div>
+                            <div class="sale">10%</div>
+                            <div class="og_price">20,000원</div>
+                            <div class="point price">14,600원</div>
+                        </li>
+                        <li>
+                            <div><img src="https://image.gift-n.net/mall/goods/0000045594.jpg"></div>
+                            <div class="pr">아이스 시그니처 초콜릿T</div>
+                            <div class="sale">10%</div>
+                            <div class="og_price">6,000원</div>
+                            <div class="point price">5,310원</div>
+                        </li>
+                        <li>
+                            <div><img src="https://image.gift-n.net/mall/goods/0000045607.jpg"></div>
+                            <div class="pr">고맙습니다-카페 아메리카노 T 2잔+부드러운 흑임자 롤</div>
+                            <div class="sale">10%</div>
+                            <div class="og_price">20,000원</div>
+                            <div class="point price">14,600원</div>
+                        </li>
+                        <li>
+                            <div><img src="https://image.gift-n.net/mall/goods/0000045594.jpg"></div>
+                            <div class="pr">아이스 시그니처 초콜릿T</div>
+                            <div class="sale">10%</div>
+                            <div class="og_price">6,000원</div>
+                            <div class="point price">5,310원</div>
+                        </li>                        
+                    </ul>
+                    <ul class="main_proposal_pro_detail" data-tab="brand-venti">                    
+                        <li>
+                            <div><img src="https://image.gift-n.net/mall/goods/0000033765.jpg"></div>
+                            <div class="pr">(아이스)연유라떼</div>
+                            <div class="sale">10%</div>
+                            <div class="og_price">3,500원</div>
+                            <div class="point price">3,150원</div>
+                        </li>
+                        <li>
+                            <div><img src="https://image.gift-n.net/mall/goods/0000033799.jpg"></div>
+                            <div class="pr">매콤 칠리 핫도그</div>
+                            <div class="sale">10%</div>
+                            <div class="og_price">4,300원</div>
+                            <div class="point price">3,870원</div>
+                        </li>
+                                              
+                    </ul>
+
+                    <ul class="main_proposal_pro_detail" data-tab="brand-baskin">                    
+                        <li>
+                            <div><img src="https://image.gift-n.net/mall/goods/0000037794.jpg"></div>
+                            <div class="pr">오레오 딸기 쉐이크 (Regular)</div>
+                            <div class="sale">10%</div>
+                            <div class="og_price">5,800원</div>
+                            <div class="point price">5,220원</div>
+                        </li>
+                        <li>
+                            <div><img src="https://image.gift-n.net/mall/goods/0000037773.jpg"></div>
+                            <div class="pr">더블주니어 아이스크림</div>
+                            <div class="sale">10%</div>
+                            <div class="og_price">5,100원</div>
+                            <div class="point price">4,590원</div>
+                        </li>
+                                              
+                    </ul>
+                     <ul class="main_proposal_pro_detail" data-tab="brand-dunkin">                    
+                        <li>
+                            <div><img src="https://image.gift-n.net/mall/goods/0000037314.jpg"></div>
+                            <div class="pr">먼치킨 10개팩 3ea</div>
+                            <div class="sale">10%</div>
+                            <div class="og_price">15,000원</div>
+                            <div class="point price">13,500원</div>
+                        </li>
+                        <li>
+                            <div><img src="https://image.gift-n.net/mall/goods/0000039072.jpg"></div>
+                            <div class="pr">도너츠 10개팩</div>
+                            <div class="sale">10%</div>
+                            <div class="og_price">19,000원</div>
+                            <div class="point price">17,100원</div>
+                        </li>                                              
+                    </ul>
+                    <ul class="main_proposal_pro_detail" data-tab="brand-tousjour">                    
+                        <li>
+                            <div><img src="https://image.gift-n.net/mall/goods/0000036367.jpg"></div>
+                            <div class="pr">그랑드카페모카롤케이크</div>
+                            <div class="sale">10%</div>
+                            <div class="og_price">15,000원</div>
+                            <div class="point price">13,500원</div>
+                        </li>
+                        <li>
+                            <div><img src="https://image.gift-n.net/mall/goods/0000036356.jpg"></div>
+                            <div class="pr">뚜레쥬르 7,000원권</div>
+                            <div class="sale">10%</div>
+                            <div class="og_price">7,000원</div>
+                            <div class="point price">6,300원</div>
+                        </li>                                              
+                    </ul>
+                </div>                
+            </section>
+            <section class="main_proposal_result">
+                <ul class="main_proposal_result_detail">
+                    <!-- <li>
+                        <div class="number">1</div>
+                        <div class="pr_re_brand">스타벅스</div>
+                        <div class="product_name pr_re_name">[특가] 아이스 아메리카노 T </div>
+                        <div class="pr_re_og_price">4,000원</div>
+                        <div class="pr_re_sale">10%</div>
+                        <div class="pr_re_price point">3,820 원</div>                        
+                        <div class="qu_button">
+                            <label>수량</label>
+                            <button type="button">-</button>
+                            <input type="text" value="1" min="1">
+                            <button type="button">+</button>
+                        </div>
+                        <div><button type="button" class="delete">삭제</button></div>
+                    </li> -->
+                </ul>
+                <div class="main_proposal_result_total">
+                    총 <span class="point"></span>개 <span>총 견적 금액 : </span><span class="point"> 원</span>
+                    <button type="button" class="main_proposal_buy">바로구매</button>
+                
+                </div>
+                <div class="main_proposal_result_btn">
+                    <button type="button" class="btn_resetall" >선택 초기화</button>
+                    <button type="button" class="btn_estimate">견적서 작성</button>
+                    <button type="button" class="btn_cart">장바구니 담기</button>
+                </div>
+            </section>
+         </article>
+
+         <script>
+            //상단 선택창 
+$(document).ready(function () {
+  // 초기화: 첫 카테고리/브랜드/상품 보여주기
+  $('.main_proposal_brand_detail').hide().first().show();
+  $('.main_proposal_pro_detail').hide().first().show();
+
+  // 1차 탭 (카테고리) 클릭 시 브랜드 영역 변경
+  $('.main_proposal_cate_detail li').on('click', function (e) {
+    e.preventDefault();
+
+    const cateTab = $(this).data('tab');
+    if (!cateTab) return;
+
+    // 해당 카테고리에 맞는 브랜드 보여주기
+    $('.main_proposal_brand_detail').hide();
+    const $brandList = $(`.main_proposal_brand_detail[data-tab="${cateTab}"]`);
+    $brandList.show();
+
+    // 해당 브랜드 리스트의 첫 li의 data-tab으로 상품 세팅
+    const firstBrandTab = $brandList.find('li[data-tab]').first().data('tab');
+    if (firstBrandTab) {
+      $('.main_proposal_pro_detail').hide();
+      $(`.main_proposal_pro_detail[data-tab="${firstBrandTab}"]`).show();
+    } else {
+      $('.main_proposal_pro_detail').hide(); // 없으면 전체 숨김
+    }
+  });
+
+  // 2차 탭 (브랜드) 클릭 시 상품 변경
+  $('.main_proposal_brand_detail li').on('click', function (e) {
+    e.preventDefault();
+
+    const brandTab = $(this).data('tab');
+    if (!brandTab) return;
+
+    $('.main_proposal_pro_detail').hide();
+    const $targetProList = $(`.main_proposal_pro_detail[data-tab="${brandTab}"]`);
+    if ($targetProList.length > 0) {
+      $targetProList.show();
+    } else {
+      console.warn('해당하는 상품 리스트가 없음:', brandTab);
+    }
+  });
+});
+// 결과값
+
+$(document).ready(function () {
+    let selectedBrandName = '';
+
+    // 브랜드 클릭 → 선택된 브랜드명 저장
+    $('.main_proposal_brand_detail li').on('click', function () {
+        $('.main_proposal_brand_detail li').removeClass('active');
+        $(this).addClass('active');
+        selectedBrandName = $(this).find('p').text().trim();
+    });
+
+    // 상품 클릭 → 결과 항목 추가
+    $('.main_proposal_pro_detail li').on('click', function () {
+        const productName = $(this).find('.pr').text().trim();
+        const sale = $(this).find('.sale').text().trim();
+        const ogPriceText = $(this).find('.og_price').text().replace(/[^0-9]/g, '');
+        const priceText = $(this).find('.price').text().replace(/[^0-9]/g, '');
+        const ogPrice = parseInt(ogPriceText);
+        const price = parseInt(priceText);
+        const index = $('.main_proposal_result ul li').length + 1;
+
+        const resultItem = `
+            <li>
+                <div class="number">${index}</div>
+                <div class="pr_re_brand">${selectedBrandName}</div>
+                <div class="product_name pr_re_name">${productName}</div>
+                <div class="pr_re_og_price">${ogPrice.toLocaleString()}원</div>
+                <div class="pr_re_sale">${sale}</div>
+                <div class="pr_re_price point" data-unit="${price}">${price.toLocaleString()} 원</div>                        
+                <div class="qu_button">
+                    <label>수량</label>
+                    <button type="button" class="qty-minus">-</button>
+                    <input type="text" value="1" min="1">
+                    <button type="button" class="qty-plus">+</button>
+                </div>
+                <div><button type="button" class="delete">삭제</button></div>
+            </li>
+        `;
+
+        $('.main_proposal_result ul').append(resultItem);
+        updateTotal();
+    });
+
+    // 수량 증가
+    $(document).on('click', '.qty-plus', function () {
+        let $input = $(this).siblings('input');
+        let quantity = parseInt($input.val()) + 1;
+        $input.val(quantity);
+        updateItemPrice($(this).closest('li'), quantity);
+    });
+
+    // 수량 감소
+    $(document).on('click', '.qty-minus', function () {
+        let $input = $(this).siblings('input');
+        let quantity = parseInt($input.val());
+        if (quantity > 1) {
+            quantity -= 1;
+            $input.val(quantity);
+            updateItemPrice($(this).closest('li'), quantity);
+        }
+    });
+
+    // 삭제
+    $(document).on('click', '.delete', function () {
+        $(this).closest('li').remove();
+        renumberItems();
+        updateTotal();
+    });
+
+    // 개별 상품 가격 업데이트
+    function updateItemPrice($li, quantity) {
+        let unitPrice = parseInt($li.find('.pr_re_price').attr('data-unit'));
+        let total = unitPrice * quantity;
+        $li.find('.pr_re_price').text(total.toLocaleString() + ' 원');
+        updateTotal();
+    }
+
+    // 전체 합계 계산
+    function updateTotal() {
+        let totalCount = 0;
+        let totalPrice = 0;
+
+        $('.main_proposal_result ul li').each(function () {
+            let quantity = parseInt($(this).find('input').val());
+            let price = parseInt($(this).find('.pr_re_price').attr('data-unit'));
+            totalCount += quantity;
+            totalPrice += quantity * price;
+        });
+
+        $('.main_proposal_result_total .point').eq(0).text(totalCount); // 총 개수
+        $('.main_proposal_result_total .point').eq(1).text(totalPrice.toLocaleString() + ' 원'); // 총 금액
+    }
+
+    // 번호 재정렬
+    function renumberItems() {
+        $('.main_proposal_result ul li').each(function (i) {
+            $(this).find('.number').text(i + 1);
+        });
+    }
+$('.btn_resetall').on('click', function () {
+    // 1. 결과 리스트 초기화
+    $('.main_proposal_result_detail').empty();
+
+    // 2. 총 수량/금액 초기화
+    $('.main_proposal_result_total .total_count').text('0');
+    $('.main_proposal_result_total .total_price').text('0 원');
+
+    // 3. active 클래스 전체 제거
+    $('.main_proposal_cate li, .main_proposal_brand li, .main_proposal_pro li, .main_proposal_brand_detail li, .main_proposal_pro_detail li').removeClass('active');
+
+    // 4. 탭 메뉴 - 첫번째 카테고리 강제 선택
+    $('.main_proposal_cate li').removeClass('active').first().addClass('active');
+    $('.main_proposal_brand').removeClass('active').first().addClass('active');
+    $('.main_proposal_brand_detail').hide().first().show();
+
+    $('.main_proposal_pro').removeClass('active').first().addClass('active');
+    $('.main_proposal_pro_detail').hide().first().show();
+
+    // 5. 필요 시 수량 input 초기화 (선택사항)
+    // $('input[type="text"][value]').val('1'); // 결과 li 생성될 때 초기화되므로 보통 필요 없음
+
+    // 6. 스크롤이나 기타 상태 초기화 필요 시 추가로 작성
+});
+
+   
+});
+
+
+// $(document).ready(function () {
+//     let count = 0;
+
+//     $('.main_proposal_pro_detail li').on('click', function () {
+//         const $product = $(this);
+
+//         // 1. 브랜드명은 현재 활성화된 브랜드 탭에서 가져옴
+//         const $activeBrand = $('.main_proposal_brand_detail:visible li.active, .main_proposal_brand_detail:visible li[data-tab].active');
+//         const brandName = $activeBrand.find('p').text() || '';
+
+//         // 2. 상품 정보 추출
+//         const productName = $product.find('.pr').text();
+//         const sale = $product.find('.sale').text();
+//         const ogPrice = $product.find('.og_price').text();
+//         const price = $product.find('.price').text();
+
+//         // 3. 중복 체크 (원하면 제거해도 됨)
+//         let isDuplicate = false;
+//         $('.main_proposal_result ul li').each(function () {
+//             if ($(this).find('.product_name').text() === productName) {
+//                 isDuplicate = true;
+//                 return false;
+//             }
+//         });
+
+//         if (isDuplicate) {
+//             alert('이미 추가된 상품입니다.');
+//             return;
+//         }
+
+//         // 4. li 생성 및 추가
+//         count++;
+//         const resultItem = `
+//             <li>
+//                 <div class="number">${count}</div>
+//                 <div class="pr_re_brand">${brandName}</div>
+//                 <div class="product_name pr_re_name">${productName}</div>
+//                 <div class="pr_re_og_price">${ogPrice}</div>
+//                 <div class="pr_re_sale">${sale}</div>
+//                 <div class="pr_re_price point">${price}</div>
+//                 <div class="qu_button">
+//                     <label>수량</label>
+//                     <button type="button" class="minus">-</button>
+//                     <input type="text" value="1" min="1">
+//                     <button type="button" class="plus">+</button>
+//                 </div>
+//                 <div><button type="button" class="delete">삭제</button></div>
+//             </li>
+//         `;
+//         $('.main_proposal_result ul').append(resultItem);
+//         updateTotal();
+//     });
+
+//     // 수량 증가/감소
+//     $(document).on('click', '.plus', function () {
+//         let $input = $(this).siblings('input');
+//         $input.val(parseInt($input.val()) + 1);
+//         updateTotal();
+//     });
+
+//     $(document).on('click', '.minus', function () {
+//         let $input = $(this).siblings('input');
+//         let current = parseInt($input.val());
+//         if (current > 1) {
+//             $input.val(current - 1);
+//             updateTotal();
+//         }
+//     });
+
+//     // 삭제
+//     $(document).on('click', '.delete', function () {
+//         $(this).closest('li').remove();
+//         updateNumbering();
+//         updateTotal();
+//     });
+
+//     // 번호 갱신
+//     function updateNumbering() {
+//         count = 0;
+//         $('.main_proposal_result ul li').each(function () {
+//             count++;
+//             $(this).find('.number').text(count);
+//         });
+//     }
+
+//     // 총합 계산
+//     function updateTotal() {
+//         let totalCount = 0;
+//         let totalPrice = 0;
+
+//         $('.main_proposal_result ul li').each(function () {
+//             let quantity = parseInt($(this).find('input').val());
+//             let priceText = $(this).find('.pr_re_price').text().replace(/[^\d]/g, '');
+//             let price = parseInt(priceText);
+//             if (!isNaN(price)) {
+//                 totalCount += quantity;
+//                 totalPrice += quantity * price;
+//             }
+//         });
+
+//         $('.main_proposal_result_total .point').eq(0).text(totalCount); // 총 개수
+//         $('.main_proposal_result_total .point').eq(1).text(totalPrice.toLocaleString() + ' 원'); // 총 금액
+//     }
+// });
+
+
+
+</script>
+        <article class="main_sale_cate">
+            <div class="sub_title">
+                <p>특가 프로모션 추천</p>
+                <h3>기프트엔에서 지금 가장 인기 있는 상품</h3>                
+            </div>  
+            <section>
+                <ul class="main_sale_cate_menu">
+                    <li data-tab="0" class="on" ><a href="#">전체</a></li>
+                    <li data-tab="1"><a href="#">커피/음료</a></li>
+                    <li data-tab="2"><a href="#">아이스크림</a></li>
+                    <li data-tab="3"><a href="#">베이커리</a></li>
+                    <li data-tab="4"><a href="#">피자/치킨</a></li>
+                    <li data-tab="5"><a href="#">패스트푸드</a></li>
+                    <li data-tab="6"><a href="#">외식</a></li>
+                    <li data-tab="7"><a href="#">편의점</a></li>
+                    <li data-tab="8"><a href="#">상품권/문화</a></li>
+                    <li data-tab="9"><a href="#">레스토랑</a></li>
+
+                </ul>
+            </section>
+            <section class="main_sale_cate_list on" data-tab="0">
+                <div class="main_sale_cate_detail">
+                    <span class="number">1</span>
+                    <img src="https://image.gift-n.net/mall/goods/0000045600.jpg" alt="product_image">
+                    <p class="brand">스타벅스</p>
+                    <p>부드러운 디저트(HOT)-카페 아메리카노T 2잔+부드러운 생크림 카스텔라</p>
+                    <div>
+                        <span class="pointmint">10%</span>
+                        <span class="price">12,510원</span>
+                        <span class="og_price">13,900원</span>
+                    </div> 
+                </div>
+
+                <div class="main_sale_cate_detail">
+                    <span class="number">2</span>
+                    <img src="https://image.gift-n.net/mall/goods/0000045600.jpg" alt="product_image">
+                    <p class="brand">스타벅스</p>
+                    <p>부드러운 디저트(HOT)-카페 아메리카노T 2잔+부드러운 생크림 카스텔라</p>
+                    <div>
+                        <span class="pointmint">10%</span>
+                        <span class="price">12,510원</span>
+                        <span class="og_price">13,900원</span>
+                    </div> 
+                </div>
+
+                <div class="main_sale_cate_detail">
+                    <span class="number">3</span>
+                    <img src="https://image.gift-n.net/mall/goods/0000045600.jpg" alt="product_image">
+                    <p class="brand">스타벅스</p>
+                    <p>부드러운 디저트(HOT)-카페 아메리카노T 2잔+부드러운 생크림 카스텔라</p>
+                    <div>
+                        <span class="pointmint">10%</span>
+                        <span class="price">12,510원</span>
+                        <span class="og_price">13,900원</span>
+                    </div> 
+                </div>
+
+                <div class="main_sale_cate_detail">
+                    <img src="https://image.gift-n.net/mall/goods/0000045600.jpg" alt="product_image">
+                    <p class="brand">스타벅스</p>
+                    <p>부드러운 디저트(HOT)-카페 아메리카노T 2잔+부드러운 생크림 카스텔라</p>
+                    <div>
+                        <span class="pointmint">10%</span>
+                        <span class="price">12,510원</span>
+                        <span class="og_price">13,900원</span>
+                    </div> 
+                </div>
+
+                <div class="main_sale_cate_detail">
+                    <img src="https://image.gift-n.net/mall/goods/0000045600.jpg" alt="product_image">
+                    <p class="brand">스타벅스</p>
+                    <p>부드러운 디저트(HOT)-카페 아메리카노T 2잔+부드러운 생크림 카스텔라</p>
+                    <div>
+                        <span class="pointmint">10%</span>
+                        <span class="price">12,510원</span>
+                        <span class="og_price">13,900원</span>
+                    </div> 
+                </div>
+
+                <div class="main_sale_cate_detail">
+                    <img src="https://image.gift-n.net/mall/goods/0000045600.jpg" alt="product_image">
+                    <p class="brand">스타벅스</p>
+                    <p>부드러운 디저트(HOT)-카페 아메리카노T 2잔+부드러운 생크림 카스텔라</p>
+                    <div>
+                        <span class="pointmint">10%</span>
+                        <span class="price">12,510원</span>
+                        <span class="og_price">13,900원</span>
+                    </div> 
+                </div>
+            </section>
+            <section class="main_sale_cate_list" data-tab="1">
+                <div class="main_sale_cate_detail">
+                    <span class="number">1</span>
+                    <img src="https://image.gift-n.net/mall/goods/0000036909.jpg" alt="product_image">
+                    <p class="brand">메가MGC커피</p>
+                    <p>메가 꿀 조합 세트</p>
+                    <div>
+                        <span class="pointmint">10%</span>
+                        <span class="price">10,400원</span>
+                        <span class="og_price">9,360원</span>
+                    </div> 
+                </div>
+                <div class="main_sale_cate_detail">
+                    <span class="number">2</span>
+                    <img src="https://image.gift-n.net/mall/goods/0000036909.jpg" alt="product_image">
+                    <p class="brand">메가MGC커피</p>
+                    <p>메가 꿀 조합 세트</p>
+                    <div>
+                        <span class="pointmint">10%</span>
+                        <span class="price">10,400원</span>
+                        <span class="og_price">9,360원</span>
+                    </div> 
+                </div>
+                <div class="main_sale_cate_detail">
+                    <span class="number">3</span>
+                    <img src="https://image.gift-n.net/mall/goods/0000036909.jpg" alt="product_image">
+                    <p class="brand">메가MGC커피</p>
+                    <p>메가 꿀 조합 세트</p>
+                    <div>
+                        <span class="pointmint">10%</span>
+                        <span class="price">10,400원</span>
+                        <span class="og_price">9,360원</span>
+                    </div> 
+                </div>
+                <div class="main_sale_cate_detail">
+                    <span></span>
+                    <img src="https://image.gift-n.net/mall/goods/0000036909.jpg" alt="product_image">
+                    <p class="brand">메가MGC커피</p>
+                    <p>메가 꿀 조합 세트</p>
+                    <div>
+                        <span class="pointmint">10%</span>
+                        <span class="price">10,400원</span>
+                        <span class="og_price">9,360원</span>
+                    </div> 
+                </div>
+                <div class="main_sale_cate_detail">
+                    <span></span>
+                    <img src="https://image.gift-n.net/mall/goods/0000036909.jpg" alt="product_image">
+                    <p class="brand">메가MGC커피</p>
+                    <p>메가 꿀 조합 세트</p>
+                    <div>
+                        <span class="pointmint">10%</span>
+                        <span class="price">10,400원</span>
+                        <span class="og_price">9,360원</span>
+                    </div> 
+                </div>
+            </section>            
+        </article> 
+
+         <!-- 상품 추천 -->
+        <article class="main_recom">
+            <div class="sub_title">
+                <p>기프트엔 상품 제안</p>
+                <h3>필요한 순간, 딱 맞는 선물</h3>
+            </div>            
+            <section class="main_recom_line">
+                <div>
+                    <p class="pointmint">#직원 복지선물</p>
+                    <p class="title">직원들은
+                        이런거
+                        좋아해요            
+                    </p>
+                </div>
+                <ul class="main_recom_thum">
+                    <li>
+                        <img src="https://image.gift-n.net/mall/goods/0000045607.jpg" alt="product_image">
+                        <span class="brand">스타벅스</span>
+                        <p>고맙습니다-카페 아메리카노 T 2잔+부드러운 흑임자 롤</p>
+                        <div>
+                            <span class="pointmint">10%</span>
+                            <span class="price">15,210원</span>
+                            <span class="og_price">16,900원</span>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://image.gift-n.net/mall/goods/0000045600.jpg" alt="product_image">
+                        <span>스타벅스</span>
+                        <p>부드러운 디저트(HOT)-카페 아메리카노T 2잔+부드러운 생크림 카스텔라</p>
+                        <div>
+                            <span class="pointmint">10%</span>
+                            <span class="price">12,510원</span>
+                            <span class="og_price">13,900원</span>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://image.gift-n.net/mall/goods/0000045607.jpg" alt="product_image">
+                        <span class="brand">스타벅스</span>
+                        <p>고맙습니다-카페 아메리카노 T 2잔+부드러운 흑임자 롤</p>
+                        <div>
+                            <span class="pointmint">10%</span>
+                            <span class="price">15,210원</span>
+                            <span class="og_price">16,900원</span>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://image.gift-n.net/mall/goods/0000045600.jpg" alt="product_image">
+                        <span>스타벅스</span>
+                        <p>부드러운 디저트(HOT)-카페 아메리카노T 2잔+부드러운 생크림 카스텔라</p>
+                        <div>
+                            <span class="pointmint">10%</span>
+                            <span class="price">12,510원</span>
+                            <span class="og_price">13,900원</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="main_recom_line">
+                <div>
+                    <p class="pointmint">#마케팅 경품 상품</p>
+                    <p class="title">요즘
+                        마케터들의
+                        PICK       
+                    </p>
+                </div>
+                <ul class="main_recom_thum">
+                    <li>
+                        <img src="https://image.gift-n.net/mall/goods/0000045607.jpg" alt="product_image">
+                        <span class="brand">스타벅스</span>
+                        <p>고맙습니다-카페 아메리카노 T 2잔+부드러운 흑임자 롤</p>
+                        <div>
+                            <span class="pointmint">10%</span>
+                            <span class="price">15,210원</span>
+                            <span class="og_price">16,900원</span>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://image.gift-n.net/mall/goods/0000045600.jpg" alt="product_image">
+                        <span>스타벅스</span>
+                        <p>부드러운 디저트(HOT)-카페 아메리카노T 2잔+부드러운 생크림 카스텔라</p>
+                        <div>
+                            <span class="pointmint">10%</span>
+                            <span class="price">12,510원</span>
+                            <span class="og_price">13,900원</span>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://image.gift-n.net/mall/goods/0000045607.jpg" alt="product_image">
+                        <span class="brand">스타벅스</span>
+                        <p>고맙습니다-카페 아메리카노 T 2잔+부드러운 흑임자 롤</p>
+                        <div>
+                            <span class="pointmint">10%</span>
+                            <span class="price">15,210원</span>
+                            <span class="og_price">16,900원</span>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://image.gift-n.net/mall/goods/0000045600.jpg" alt="product_image">
+                        <span>스타벅스</span>
+                        <p>부드러운 디저트(HOT)-카페 아메리카노T 2잔+부드러운 생크림 카스텔라</p>
+                        <div>
+                            <span class="pointmint">10%</span>
+                            <span class="price">12,510원</span>
+                            <span class="og_price">13,900원</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="main_recom_line">
+                <div>
+                    <p class="pointmint">#명절/감사 선물</p>
+                    <p class="title">받는 사람도
+                        만족하는
+                        감사 선물   
+                    </p>
+                </div>
+                <ul class="main_recom_thum">
+                    <li>
+                        <img src="https://image.gift-n.net/mall/goods/0000040242.jpg" alt="product_image">
+                        <span class="brand">메가박스</span>
+                        <p>1인권B</p>
+                        <div>
+                            <span class="pointmint">10%</span>
+                            <span class="price">11,700원</span>
+                            <span class="og_price">13,000원</span>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://image.gift-n.net/mall/goods/0000032827.jpg" alt="product_image">
+                        <span class="brand">메가박스</span>
+                        <p>더부티크 스위트2인권B</p>
+                        <div>
+                            <span class="pointmint">10%</span>
+                            <span class="price">72,000원</span>
+                            <span class="og_price">80,000원</span>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://image.gift-n.net/mall/goods/0000035407.jpg" alt="product_image">
+                        <span class="brand">포레스타</span>
+                        <p>모바일 금액권 5만원</p>
+                        <div>
+                            <span class="pointmint">10%</span>
+                            <span class="price">45,000원</span>
+                            <span class="og_price">50,000원</span>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://image.gift-n.net/mall/goods/0000045600.jpg" alt="product_image">
+                        <span class="brand">스타벅스</span>
+                        <p>부드러운 디저트(HOT)-카페 아메리카노T 2잔+부드러운 생크림 카스텔라</p>
+                        <div>
+                            <span class="pointmint">10%</span>
+                            <span class="price">12,510원</span>
+                            <span class="og_price">13,900원</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            
+            
+        </article>
+        
+        <article class="main_brand">
+            <div class="sub_title">
+                <p>브랜드 추천</p>
+                <h3>받는 사람도 만족하는 인기 브랜드</h3>
+            </div>  
+            <section class="main_brand_list">
+                <div class="brand_list_detail brand-twosome">
+                    <a href="#">
+                        <div class="brand_list_div">
+                            <img src="./images/main/brand_logo_twosome.png">
+                            <p>투썸 플레이스</p>
+                            <p>최대 <span class="pointmint">10%</span> 할인</p>
+                        </div>
+                    </a>
+                </div>        
+                <div class="brand_list_detail brand-br">
+                    <a href="#">
+                        <div class="brand_list_div">
+                            <img src="./images/main/brand_logo_br.png">
+                            <p>배스킨라빈스</p>
+                            <p>최대 <span class="pointmint">10%</span> 할인</p>
+                        </div>
+                    </a>
+                </div>              
+                <div class="brand_list_detail brand-star">
+                    <a href="#">
+                        <div class="brand_list_div">
+                            <img src="./images/main/brand_logo_star.png">
+                            <p>스타벅스</p>
+                            <p>최대 <span class="pointmint">10%</span> 할인</p>
+                        </div>
+                    </a>
+                </div>  
+                <div class="brand_list_detail brand-gongcha">
+                    <a href="#">
+                        <div class="brand_list_div">
+                            <img src="./images/main/brand_logo_gongcha.png">
+                            <p>공차</p>
+                            <p>최대 <span class="pointmint">10%</span> 할인</p>
+                        </div>
+                    </a>
+                </div> 
+            </section>
+        </article> 
+
+
+        <article class="main_customer">
+            <section>
+                <h3>
+                    이용하는데
+                    궁금한점이 있나요?
+                </h3>                
+            </section>
+            <section class="main_customer_line">
+                <div>
+                    <h4 class="footer_subtitle">제휴 및 입점 문의</h4>
+                    <p>mkt@gift-n.co.kr</p>
+                </div>
+                <div>
+                    <h4 class="footer_subtitle">입금 은행</h4>
+                    <p>우리 1005-802-253840</p>
+                    <span>예금주 : 기프트레터(주)</span>
+                </div>
+            </section>
+            <section>
+                <h4 class="footer_subtitle">고객 센터</h4>
+                <h3>1600-4072</h3>
+                <p class="main_customer_time">
+                    평일 09:00-18:00 │ 점심시간 12:30 - 13:30
+                    토,일요일/공휴일 휴무
+                </p>
+                <button type="button" class="customer_btn">1:1 문의</button>
+            </section>
+        </article>
+        
+
+
+     </main>
+<!-- 
+ <div class="quick_wrap">
+      <ul class="quick_btns">
+                  <li class="bizmoney">
+                     <a href="/Login/Login">
+                           <i class="main_icon icon1"></i>
+                     </a>
+                  </li>
+
+         <li>
+               <a href="/Estimate/Estimate" title="온라인견적서">
+                  <i class="main_icon icon2"></i>
+               </a>
+         </li>
+         <li>
+               <a href="/Mypage/MypageSendWaitList" title="임시보관주문">
+                  <i class="main_icon icon3"></i>
+               </a>
+         </li>
+         <li>
+               <a href="/Brand/WishList" title="찜목록">
+                  <i class="main_icon icon4"></i>
+               </a>
+
+               
+
+         </li>
+      </ul>
+      <div class="quick_view">
+         <p class="tit">최근 본 상품</p>
+         <div class="quick_list slick-initialized slick-slider slick-vertical"><div class="slick-list draggable" style="height: 0px;"><div class="slick-track" style="opacity: 1; height: 0px; transform: translate3d(0px, 0px, 0px);"></div></div></div>
+      </div>
+      <button type="button" class="top_btn" onclick="document.location.href='#';">TOP</button>
+   </div> -->
+
+   <footer class="foot">
+    <section class="foot_line1">
+        <h3><img src=""></h3>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </section>
+    <section class="foot_line2">
+        <ul>
+            <li>
+                <a href="http://www.giftletter.co.kr/" target="_blank">회사소개</a>
+            </li>                    
+            <li>
+                <a href="https://image.gift-n.net/gbm/files/biz_main/개인정보취급방침.docx">개인정보 처리방침</a>
+            </li>
+            <li>
+                <a href="https://image.gift-n.net/gbm/files/biz_main/이용약관.docx">이용약관</a>
+            </li>
+        </ul>
+    </section>
+    <section class="foot_line3">                  
+        <p>
+            <span>기프트레터(주)</span>
+            <spa>서울 강남구 언주로 637 (논현동, 싸이칸타워) 8층</spa>
+        </p>
+        <p>
+            <span>사업자등록번호 : 220-88-57522</span>
+            <span>통신판매업신고 : 제2021-서울서초-01383호</span>
+        </p>                       
+        <p>
+            <span>고객센터 : 1600-4072</span>
+            <span>FAX : 02-6971-9513</span>
+            <span>E-mail :mkt@gift-n.co.kr </span>
+        </p> 
+    </section>
+    <section class="foot_line4">
+        <p>COPYRIGHT 2021 giftletter ALL RIGHTS RESERVED.</p>
+        <div>
+            <a href="https://pf.kakao.com/_iprdT"></a>
+            <a href="blog.naver.com/giftn777"></a>
+            <a href="https://www.facebook.com/profile.php?id=100063652562658#"></a>
+            <a href="https://www.instagram.com/giftletter/"></a>                    
+        </div>
+    </section>
+
+</footer>
+
+   </div>
+    <script>
+            
+        </script>
+          <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+          <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+          <script type="text/javascript">
+
+$('.main_sale_cate_menu li').on('click', function(e) {
+  e.preventDefault();
+
+  var tabId = $(this).data('tab');
+
+  // 메뉴 on 클래스 토글
+  $('.main_sale_cate_menu li').removeClass('on');
+  $(this).addClass('on');
+
+  // 슬라이드 컨테이너 숨김 처리 변경
+  $('.main_sale_cate_list').each(function() {
+    if ($(this).data('tab') == tabId) {
+      $(this).addClass('on').slick('setPosition');
+    } else {
+      $(this).removeClass('on');
+    }
+  });
+});
+
+            $(document).on('ready', function() {
+               $(".main_banners").slick({
+                  accessibility: false,
+                  autoplay: true,
+                  autoplaySpeed: 5000,
+                  speed: 1000,
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  dots: false,
+                  arrow:false,
+               });
+
+              $(".item_list2").slick({    
+               accessibility: false,
+               autoplay: true,
+               autoplaySpeed: 3000,
+               speed: 1000,
+               slidesToShow: 5,
+               slidesToScroll: 5,
+               dots: true
+              });
+
+              $(".main_brand_list").slick({
+                  accessibility: false,
+                  autoplay: true,
+                  autoplaySpeed: 1500,
+                  speed: 1000,
+                  slidesToShow: 3,
+                  slidesToScroll: 1,
+                  dots: false,
+                  arrow:true
+               });
+            });
+
+            $(".main_sale_cate_list").slick({
+                  accessibility: false,
+                  autoplay: true,
+                  autoplaySpeed: 1000,
+                  speed: 1500,
+                  slidesToShow: 5,
+                  slidesToScroll: 1,
+                  centerMode: false,
+                  dots: false,
+                  arrow:true
+            });
+
+        </script>
+
+
+</body>
+</html>

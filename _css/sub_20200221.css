@@ -1,0 +1,280 @@
+/* sub common */
+
+
+.listPage { margin:auto 0 100px; text-align: center; zoom: 1; clear:both; padding-top:60px; }
+.listPage button {border:0; vertical-align:middle; display:inline-block; height:42px; text-indent: -9999px; width:42px; margin:0 2px;}
+.listPage .first_btn {background:url(../images/main/paging_prev.png) no-repeat 0 0}
+.listPage ul {vertical-align:middle; display: inline-block; overflow: hidden; }
+.listPage li { float: left; margin:0 10px; }
+.listPage li:hover a, .listPage li.on a {color:#fff; background:#4f69ee; border-radius:50%;}
+.listPage li a { display: block; font-size: 16px; color:#666; text-align: center; width:50px; height:50px; line-height:50px;}
+.listPage .last_btn {background:url(../images/main/paging_next.png) no-repeat 0 0}
+
+.subIcon {background-image:url(../images/sub/sub_icons.png); vertical-align:middle; }
+
+.bg_blue {background:#f5f7f7;}
+.subBtns {text-align:center;}
+.subBtns button {width:185px; height:60px; line-height:60px; text-align:center; font-size:18px; font-weight:600; text-align:center; }
+.subBtns .btn1 {margin-right:6px; color:#4f69ee; border:1px solid #999; border-radius:30px; background:#fff;}
+.subBtns .btn2 {color:#fff; border:1px solid #4f69ee; border-radius:30px; background:#4f69ee;}
+.subBtns button .writeIcon {width:24px; height:24px; background-position:-43px 0; margin-right:10px;}
+
+
+.input01 {height:50px; line-height:48px; box-sizing:border-box; border:1px solid #ddd; padding:0 10px; font-size:16px; color:#666;}
+.textarea1 {width:100%; box-sizing:border-box; border:1px solid #ddd; padding:10px;font-size:16px; color:#666;}
+
+.rightCon {float:right;}
+.mr25 {margin-right:25px;}
+.w100p {width:100% !important;}
+
+/* blog 홈 */
+
+h2.blogTit {font-size:36px; color:#333; font-weight:300; margin:60px 0 20px;}
+h2.blogTit span {font-size:36px; font-weight:600;}
+h2.blogTit .con_icon {vertical-align:middle; margin-right:20px; width:50px; height:50px; border-radius:50%; overflow:hidden;}
+h2.blogTit .con1 {background:url(../images/sub/con_icon1.png) no-repeat 0 0;}
+.sub_visual {width:100%; background:url(../images/sub/sub_visual1.jpg) no-repeat 0 0; position:relative;}
+.sub_visual .visualTit {font-size:70px; color:#fff; font-family: 'Teko'; font-weight:500; padding-top:170px;}
+.sub_visual .bannerEdit {position:absolute; right:0px; top:30px; padding:0 15px; height:36px; line-height:36px; background:#fff; border:1px solid #ddd; border-radius:30px; font-size:16px; font-weight:500; color:#999;}
+
+
+.sub_visual .profile {padding:45px 80px; box-sizing:border-box; margin-top:115px; width:100%; height:360px; background:#fff; box-shadow:5px 10px 17px 6px #d4d4d4c2; border-radius:10px;}
+.sub_visual .profile:after {content:''; clear:both; height:0; display:block; visibility:hidden;}
+.sub_visual .profile .imgArea {float:left; margin:0 auto; width:260px; height:260px; border-radius:50%; position:relative;}
+.sub_visual .profile .imgArea img{width:100%; height:100%; border-radius:50%;}
+.sub_visual .profile .imgArea .flag {width:50px; height:50px; border-radius:50%; overflow:hidden; position:absolute; bottom:10px; right:20px;}
+.sub_visual .profile .infoArea {float:right; width:680px; margin-top:25px;}
+.sub_visual .profile .infoArea .name {font-size:20px; font-weight:600; color:#333; padding-bottom:15px;  border-bottom:1px solid #ddd;}
+.sub_visual .profile .infoArea .name em {color:#999; font-weight:normal;}
+.sub_visual .profile .infoArea .name span {font-weight:normal;}
+.sub_visual .profile .infoArea .info {margin:15px 0 30px; font-size:16px; color:#666; line-height:1.6; display: inline-block; overflow: hidden; text-overflow: ellipsis; width:100%; white-space: normal; height:6em; text-align: left; word-wrap: break-word; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; }
+.sub_visual .profile .infoArea .btns {overflow:hidden;}
+.sub_visual .profile .infoArea .btns .num {font-size:14px; color:#999; margin-top:15px; display:inline-block;}
+.sub_visual .profile .infoArea .btns > div {float:right;}
+.sub_visual .profile .infoArea .btns > div button {width:230px; height:50px; line-height:50px; text-align:center; font-size:18px; color:#666; border-radius:30px; border:1px solid #ddd; background:#fff;}
+.sub_visual .profile .infoArea .btns > div button.on {margin-left:20px; border:1px solid #4f69ee; background:#4f69ee; font-weight:600; color:#fff;}
+.sub_visual .profile .infoArea .btns .icon1 {margin-right:10px; width:26px; height:26px; background-position:0px 0px;}
+.sub_visual .profile .infoArea .btns .icon2 {margin-right:10px; width:24px; height:24px; background-position:-43px 0px;}
+
+.boardList1 .boardTit {border-bottom:1px solid #ddd; overflow:hidden; margin-top:100px;}
+.boardList1 .boardTit .num {font-size:24px; color:#333; font-weight:300; display:inline-block; padding-bottom:15px;}
+.boardList1 .boardTit .num span {font-weight:600;}
+.boardList1 .boardTit .searchDiv {float:right; width:280px; position:relative; margin-bottom:10px;}
+.boardList1 .boardTit .searchDiv input[type="text"] {width:100%; height:46px; line-height:44px; border:1px solid #ddd; padding:0 45px 0 15px; box-sizing:border-box; font-size:14px;}
+.boardList1 .boardTit .searchDiv button {text-indent:-9999px; width:23px; height:23px; background:url(../images/common/header_icons.png) no-repeat 0px 0; border:0; position:absolute; right:20px; top:13px;}
+
+.boardList1 .boardCon ul li {padding:40px 0; border-bottom:1px solid #eee; overflow:hidden;}
+.boardList1 .boardCon ul li.boardNone {margin-bottom:150px; padding:170px 0; text-align:center; }
+.boardList1 .boardCon ul li.boardNone p {font-size:24px; font-weight:300;}
+.boardList1 .boardCon ul li .txtArea {width:850px; float:left;}
+.boardList1 .boardCon ul li .txtArea .tit {font-size:30px; color:#333;margin-top:10px;}
+.boardList1 .boardCon ul li .txtArea .tit .lock {width:25px; height:30px; background-position:-160px 0; margin-right:10px;}
+.boardList1 .boardCon ul li .txtArea .con {margin:20px 0 35px; font-size:16px; color:#666; display: inline-block; overflow: hidden; text-overflow: ellipsis; width:100%; white-space: normal; line-height: 1.6; height:8em; text-align: left; word-wrap: break-word; display: -webkit-box; -webkit-line-clamp:5; -webkit-box-orient: vertical; }
+.boardList1 .boardCon ul li .txtArea .icons .time {font-size:16px; color:#999;}
+.boardList1 .boardCon ul li .txtArea .icons div {float:right;}
+.boardList1 .boardCon ul li .txtArea .icons div span {font-size:16px; color:#999;}
+.boardList1 .boardCon ul li .txtArea .icons div span i {margin-right:10px;}
+.boardList1 .boardCon ul li .txtArea .icons .view i {width:26px; height:19px; background-position:-83px 0;}
+.boardList1 .boardCon ul li .txtArea .icons .reply {margin-left:32px;}
+.boardList1 .boardCon ul li .txtArea .icons .reply i {width:20px; height:22px; background-position:-126px 0;}
+.boardList1 .boardCon ul li .imgArea {float:right; width:280px; height:280px;}
+
+
+/* view */
+
+.boardView .boardTit {margin:65px 0 30px; border-bottom:2px solid #333; padding-bottom:20px;}
+.boardView .boardTit .tit {font-size:30px; font-weight:300; color:#333; margin-bottom:35px;}
+.boardView .boardTit .tit .lockIcon {width:24px; height:29px; background-position:-160px 0;}
+.boardView .boardTit .titInfo {overflow:hidden;}
+.boardView .boardTit .titInfo .info {float:left;}
+.boardView .boardTit .titInfo .info .img {vertical-align:middle; margin-right:10px; display:inline-block; width:36px; height:36px; border-radius:50%; border:1px solid #ddd; overflow:hidden;}
+.boardView .boardTit .titInfo .info .img img {width:100%; height:100%;}
+.boardView .boardTit .titInfo .info span {font-size:16px; color:#999;}
+.boardView .boardTit .titInfo .icons {float:right;}
+.boardView .boardTit .titInfo .icons span {font-size:16px; color:#999;}
+.boardView .boardTit .titInfo .icons span i {margin-right:10px;}
+.boardView .boardTit .titInfo .icons .view i {width:26px; height:19px; background-position:-83px 0;}
+.boardView .boardTit .titInfo .icons .reply {margin-left:32px;}
+.boardView .boardTit .titInfo .icons .reply i {width:20px; height:22px; background-position:-126px 0;}
+
+.boardView .boardCon {border:1px solid #ddd; box-sizing:border-box; padding:20px; margin-bottom:10px; min-height:560px;}
+
+.boardView .boardFile {position:relative; border:1px solid #ddd; box-sizing:border-box; padding:10px 20px; background:#f6f6f6;}
+.boardView .boardFile a {display:block; width:100%; height:100%; font-size:16px; color:#bbb;}
+.boardView .boardFile .fileIcon {width:26px; height:22px; background-position:-201px 0; margin-right:10px;}
+.boardView .boardFile .downIcon {width:24px; height:19px; background-position:-239px 0; position:absolute; right:20px; top:10px;}
+
+.boardView .replyDiv .replyBtns {padding:35px 0 20px; overflow:hidden;}
+.boardView .replyDiv .replyBtns .replyNum {background:#fff; padding:0 15px; height:44px; line-height:44px; border:1px solid #ddd; border-radius:30px; font-size:16px; color:#333; }
+.boardView .replyDiv .replyBtns .replyNum span {color:#4f69ee;}
+.boardView .replyDiv .replyBtns .replyNum i {margin-left:20px; background-position:-352px 0 ; width:14px; height:8px;}
+.boardView .replyDiv .replyBtns .replyNum.on i { background-position:-331px 0 ;}
+.boardView .replyDiv .replyBtns .rightCon button {width:60px; height:35px; line-height:35px; border:1px solid #ddd; border-radius:30px; background:#fff; text-align:center; font-size:16px; color:#999;}
+.boardView .replyDiv .replyList {display:none; border-top:1px solid #ddd;}
+.boardView .replyDiv .replyList .replyTit {position:relative;}
+.boardView .replyDiv .replyList .replyTit .img {vertical-align:middle; margin-right:10px; display:inline-block; width:36px; height:36px; border-radius:50%; border:1px solid #ddd; overflow:hidden;}
+.boardView .replyDiv .replyList .replyTit .img img {width:100%; height:100%;}
+.boardView .replyDiv .replyList .replyTit span {font-size:16px; color:#333;}
+.boardView .replyDiv .replyList .replyTit .btns {position:absolute; right:0px; top:0px;}
+.boardView .replyDiv .replyList .replyTit .btns button {background:#fff; width:55px; height:26px; line-height:26px; font-size:14px; color:#999; border:1px solid #ddd;}
+.boardView .replyDiv .replyList .replyCon {font-size:16px; color:#333; margin-top:15px; line-height:1.6;}
+.boardView .replyDiv .replyList ul li {border-bottom:1px solid #ddd; padding:25px 0;}
+
+
+.boardView .replyWrite {border:1px solid #ddd; box-sizing:border-box; padding:15px 20px;}
+.boardView .replyWrite {position:relative;}
+.boardView .replyWrite .img {vertical-align:middle; margin-right:10px; display:inline-block; width:36px; height:36px; border-radius:50%; border:1px solid #ddd; overflow:hidden;}
+.boardView .replyWrite .img img {width:100%; height:100%;}
+.boardView .replyWrite span {font-size:16px; color:#999;}
+.boardView .replyWrite textarea {width:1000px; border:0px; font-size:16px; color:#666; margin-top:30px;}
+.boardView .replyWrite .num {position:absolute; bottom:10px; right:10px;}
+.boardView .replyWrite .num button {border-radius:30px; border:0; width:70px; height:36px; line-height:36px; text-align:center; font-size:16px; font-weight:500; color:#fff; background:#4f69ee;}
+
+
+.boardView .prevNext {width:100%; height:50px; line-height:50px; margin:30px 0 60px; border-top:1px solid #ddd; border-bottom:1px solid #ddd;}
+.boardView .prevNext ul {overflow:hidden;}
+.boardView .prevNext ul li {position:relative; float:left; width:50%; padding:0 20px; box-sizing:border-box;}
+.boardView .prevNext ul li:first-child:before {position:absolute; right:0; top:11px; background-color:#bbb; width:1px; height:30px; content:''; display:block;}
+.boardView .prevNext ul li:last-child {text-align:right;}
+.boardView .prevNext ul li a {vertical-align:middle; font-size:16px; color:#333; display:inline-block; width:calc(100% - 90px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; word-break: break-all; }
+.boardView .prevNext ul li span {vertical-align:middle; color:#999;}
+.boardView .prevNext ul li .prev {margin-right:20px;}
+.boardView .prevNext ul li .next {margin-left:20px;}
+
+
+.blogInfo {background:#f6f6f6; padding:40px 0; overflow:hidden;}
+.blogInfo .imgArea {float:left; margin:0 auto; width:188px; height:188px; border-radius:50%; position:relative;}
+.blogInfo .imgArea img{width:100%; height:100%; border-radius:50%;}
+.blogInfo .imgArea .flag {width:37px; height:37px; border-radius:50%; overflow:hidden; position:absolute; bottom:10px; right:10px;}
+.blogInfo .infoArea {margin-top:25px; width:945px; float:right; position:relative;}
+.blogInfo .infoArea .name {font-size:20px; font-weight:600; color:#333; padding-bottom:25px; }
+.blogInfo .infoArea .name em {color:#999; font-weight:normal;}
+.blogInfo .infoArea .name span {font-weight:normal;}
+.blogInfo .infoArea .info {font-size:16px; color:#666; line-height:1.6;}
+.blogInfo .infoArea .blogBtn {position:absolute; right:0px; top:0px; border:0;width:143px; height:44px; line-height:44px; border-radius:30px; background:#4f69ee; text-align:center; font-size:16px; font-weight:500; color:#fff;}
+
+
+/* 개설하기 */
+
+.createBlog_pd  {padding:100px 0 230px; }
+.createBlog {margin:0 auto; text-align:center; width:580px; height:652px; background:#fff; border-top:6px solid #4f69ee; border-radius:10px; overflow:hidden; box-shadow: 16px 20px 20px 10px #dad9d9}
+.createBlog .name {font-size:16px; color:#333; margin:55px 0 25px; display:inline-block;}
+.createBlog .name i {width:21px; height:15px; background:url(../images/main/national_flag4.png);}
+.createBlog .tit {font-family: 'Noto Sans KR'; font-size:30px; font-weight:500; color:#333; margin-bottom:40px;}
+.createBlog label {display:block; margin-bottom:10px; font-size:16px; color:#333; text-align:left;}
+.createBlog input[type="text"] {margin-bottom:15px; width:100%; height:56px; line-height:56px; font-size:16px; color:#666; box-sizing:border-box; padding:0 20px; border:1px solid #ddd;}
+.createBlog textarea {margin-bottom:35px; width:100%; height:170px; border:1px solid #ddd; box-sizing:border-box; padding:20px; font-size:16px; color:#666;}
+.createBlog_inner {width:380px; margin:0 auto;}
+
+
+.sub_popup {display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); z-index:999;}
+.sub_popup .popup_wrap {border-radius:10px;width:483px; padding:40px; background:#fff; box-sizing:border-box; text-align:left; margin:20% auto 0;}
+.sub_popup .popup_wrap .tit {font-family: 'Noto Sans KR'; font-size:30px; color:#333; font-weight:500; margin-bottom:30px;}
+.sub_popup .popup_wrap .con {font-size:16px; color:#888; margin-bottom:25px;}
+.sub_popup .popup_wrap .con span {display:block; color:#333; display:inline-block; margin-bottom:10px;}
+.sub_popup .popup_wrap .radioUl {overflow:hidden; margin-bottom:15px;}
+.sub_popup .popup_wrap .radioUl li {float:left; width:50%;}
+.sub_popup .popup_wrap .radioUl li .inputArea { margin:10px 0;}
+.sub_popup .popup_wrap .textarea1 {height:123px; margin-bottom:30px;}
+.popup02 .popup_wrap {margin:10% auto 0;}
+.popup03 .popup_wrap {width:764px; margin:5% auto 0;}
+
+.popup03 .bannerTab {width:100%; overflow:hidden; box-sizing:border-box;}
+.popup03 .bannerTab li {float:left;width:50%; text-align:center; height:50px; line-height:50px; box-sizing:border-box; border:1px solid #ddd;}
+.popup03 .bannerTab li a {display:block; width:100%; font-size:16px; color:#555;}
+.popup03 .bannerTab li.active {background:#4f69ee;}
+.popup03 .bannerTab li.active a {color:#fff;}
+.popup03 .tab_content {height:500px; overflow-y:scroll;}
+.popup03 .tab_content .bannerUl li {width:100%; height:152px; margin-top:10px;}
+.popup03 .tab_content .bannerUl li img {width:100%; height:100%;}
+.popup03 .tab_content .filebox {margin-top:20px;}
+.popup03 .tab_content .fileTxt {font-size:14px; color:#999; margin-top:15px;}
+.popup03 .tab_content .fileDiv .fileNone {margin-top:175px; text-align:center; font-size:16px; color:#333; padding-top:95px; background:url(../images/sub/picIcon.png) no-repeat 50% 0;} 
+ 
+
+
+
+
+
+/* 블로그 글쓰기 */
+
+
+.boardWrite .boardTit {margin:65px 0 30px; border-bottom:2px solid #4f69ee; padding-bottom:20px;}
+.boardWrite .boardTit .tit {font-size:30px; font-weight:300; color:#333; margin-bottom:35px; }
+.boardWrite .boardTit .titInfo {overflow:hidden;}
+.boardWrite .boardTit .titInfo .info {float:left;}
+.boardWrite .boardTit .titInfo .info .img {vertical-align:middle; margin-right:10px; display:inline-block; width:37px; height:25px; overflow:hidden;}
+.boardWrite .boardTit .titInfo .info .img img {width:100%; height:100%;}
+.boardWrite .boardTit .titInfo .info p {display:inline-block; font-size:20px; color:#333; font-weight:600;}
+.boardWrite .boardTit .titInfo .info p span {font-weight:normal; color:#999;}
+.boardWrite .boardTit .titInfo .info p em {font-weight:normal; color:#333;}
+
+
+.boardWrite .boardCon table {width:100%; }
+.boardWrite .boardCon table th {vertical-align:top; padding:5px 0; font-size:20px; color:#333;text-align:left; font-weight:500; font-family: 'Noto Sans KR';}
+.boardWrite .boardCon table td {padding:5px 0; font-size: 16px;}
+.boardWrite .boardCon .subBtns {border-top:1px solid #ddd; margin:47px 0 100px; padding-top:45px;}
+.boardWrite .boardCon table .textarea1 {height:560px;}
+
+.inputArea input[type="radio"]{display: none;}
+.inputArea input[type="radio"] + label {line-height: 20px; font-size:16px; color: #555; cursor: pointer;}
+.inputArea input[type="radio"] + label span {display: inline-block; width:24px; height:24px; margin-right: 5px !important; vertical-align: sub; background:url(../images/sub/radio_off.png) center no-repeat; cursor: pointer;}
+.inputArea input[type="radio"]:checked + label span {background:url(../images/sub/radio_on.png) center no-repeat;}
+
+.filebox label { display: inline-block; font-size:16px; color:#555; text-align:center; width:150px; height:43px; line-height:41px; background:#ddd; box-sizing:border-box; border:1px solid #bbb; cursor:pointer;}
+.filebox input[type="file"] {position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+.filebox .upload_name {width:calc(100% - 200px); display: inline-block;  padding:0 15px; height:43px; line-height:41px; font-size: 16px; -webkit-appearance: none; /* 네이티브 외형 감추기 */ -moz-appearance: none; appearance: none; color:#4f92ee; background:none; border:1px solid #ddd; box-sizing:border-box;}
+
+
+/* 검색결과 */
+.subSearch {margin-top:125px; border:1px solid #ddd; box-sizing:border-box; width:100%; background:#f6f6f6; padding:15px 0;}
+.subSearch > div {width:514px; margin:0 auto; position:relative;}
+.subSearch input[type="text"] {text-align:center; background:transparent;box-sizing:border-box; padding:0 90px 10px 15px;width:100%; height:60px; line-height:60px; border:0; border-bottom:1px solid #333 !important; font-size:24px; font-weight:600; color:#333; font-family: 'Noto Sans KR';}
+.subSearch .searchBtns {position:absolute; right:0px; top:10px;}
+.subSearch .searchBtns button {width:40px; height:40px; border:0; }
+.subSearch .escIcon {background-position:-374px 0; }
+.subSearch .searchIcon {background-position:-424px 0; margin-left:5px;}
+
+.searchNone {margin:100px 0 200px; padding:85px 0; text-align:center; border-top:1px solid #ddd; border-bottom:1px solid #ddd;}
+.searchNone .result {font-size:24px; color:#333; font-weight:300; font-family: 'Noto Sans KR'; margin-bottom:10px;}
+.searchNone .result span {font-weight:600; font-family: 'Noto Sans KR';}
+.searchNone .txt {font-size:18px; color:#333; font-family: 'Noto Sans KR'; font-weight:300;}
+
+/* 로그인 */
+
+.loginDiv_pd  {padding:100px 0 230px; }
+.loginDiv {margin:0 auto;padding:75px 0; text-align:center; width:580px; background:#fff; border-top:6px solid #4f69ee; border-radius:10px; overflow:hidden; box-shadow: 16px 20px 20px 10px #dad9d9}
+.loginDiv .tit {font-size:40px; font-weight:500; color:#333; margin-bottom:50px;}
+.loginDiv input[type="text"] {margin-bottom:15px; width:100%; height:56px; line-height:56px; font-size:16px; color:#666; box-sizing:border-box; padding:0 20px; border:1px solid #ddd;}
+.loginDiv input[type="password"] {margin-bottom:30px; width:100%; height:56px; line-height:56px; font-size:16px; color:#666; box-sizing:border-box; padding:0 20px; border:1px solid #ddd;}
+.loginDiv textarea {margin-bottom:35px; width:100%; height:170px; border:1px solid #ddd; box-sizing:border-box; padding:20px; font-size:16px; color:#666;}
+.loginDiv_inner {width:380px; margin:0 auto;}
+.signBtn {border:0; background:#4f69ee; width:380px; height:60px; line-height:60px; border-radius:30px; text-align:center; color:#fff; font-size:18px; font-weight:500;} 
+.signBtn2 {background:#bf9834;}
+.loginDiv .btnTxt {letter-spacing:0.3px; font-size:14px; color:#666; line-height:1.7; margin-top:55px;}
+.loginDiv .btnTxt a {color:#4f69ee; display:inline-block; border-bottom:1px solid #4f69ee; }
+
+.loginDiv_txt {margin:0 auto; text-align:center;}
+.loginDiv_txt .loginTxt {font-size:22px; color:#666; line-height:1.6; margin:65px 0 33px;}
+.loginDiv_txt .loginTxt span {font-size:22px; color:#4f69ee;}
+
+
+/* 블로그 관리 */
+
+.sub_visual .editProfile{padding:90px 100px; box-sizing:border-box; margin:115px 0; width:100%; background:#fff; box-shadow:5px 10px 17px 6px #d4d4d4c2; border-radius:10px;}
+.sub_visual .editProfile:after {content:''; clear:both; height:0; display:block; visibility:hidden;}
+.sub_visual .editProfile .imgArea {width:260px; height:260px; margin:0 auto 60px; text-align:center; position:relative;}
+.sub_visual .editProfile .imgArea img {width:260px; height:260px; border-radius:50%; overflow:hidden; border:1px solid #ddd;}
+.sub_visual .editProfile .imgArea button {border:0; text-indent:-9999px;position:absolute; right:10px; bottom:10px; width:48px; height:48px; background:url(../images/sub/sub_icons.png) no-repeat -480px 0 ;}
+.sub_visual .editProfile .txtArea label {display:block; margin-bottom:10px; font-size:20px; color:#333; text-align:left;}
+.sub_visual .editProfile .txtArea input[type="text"] {margin-bottom:15px; width:100%; height:56px; line-height:56px; font-size:16px; color:#666; box-sizing:border-box; padding:0 20px; border:1px solid #ddd;}
+.sub_visual .editProfile .txtArea textarea {width:100%; height:170px; border:1px solid #ddd; box-sizing:border-box; padding:20px; font-size:16px; color:#666;}
+.sub_visual .editProfile .txtArea .btTxt {font-size:16px; color:#999; margin:15px 0 70px;}
+
+
+
+
+
+
+
+
