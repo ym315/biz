@@ -1319,131 +1319,6 @@ $pointskyblue:#eaf0f7;
 
 .shop_wrap .board_top p {padding: 0 30px 0 20px; line-height: 45px;}
 
-// .condition_set > li {
-//   overflow: hidden; 
-//   margin: 10px 0 0 0; 
-//   box-sizing: border-box;  
-// }
-
-// .condition_set > li .tit {
-//   position: absolute; 
-//   display: block; 
-//   margin: -1px 0 0 -1px; 
-//   box-sizing: border-box; 
-//   width: 160px; 
-//   font-size: 16px; 
-//   font-weight: 500; 
-//   color: #333; 
-//   text-align: center; 
-
-// }
-
-//   .condition_set .cate_list ul{    
-//     @include display(flex,space-between,center);
-//     @include layout(90%,0 auto,0);
-//     margin-bottom:30px;
-//   }
-// .condition_set .cate_list ul li {
-//   box-sizing: border-box;
-
-// }
-// .condition_set .cate_list ul li:first-child {margin: 0;}
-// .condition_set .cate_list ul li a {display: block; box-sizing: border-box; padding: 30px 0 0 0; font-size: 14px; color: #333; text-align: center;}
-// .condition_set .cate_list ul li i {
-//   display: block;
-//   width: 50px;
-//   height: 50px;
-//   text-align: center;
-//   background-image: url('../images/main/common_icon.png');
-//   background-repeat: no-repeat;
-//   margin:0 auto;
-// }  
-
-// .condition_set .cate_list ul li p{margin-top:7px;}
-
-  // &:nth-of-type(1){i{width:37px; height:47px; background-position:0px -104px}}
-  // &:nth-of-type(2){i{width:37px; height:47px; background-position:-43px -104px}}
-  // &:nth-of-type(3){i{width:47px; height:47px; background-position:-87px -104px}}
-  // &:nth-of-type(4){i{width:44px; height:47px; background-position:-140px -104px}}
-  // &:nth-of-type(5){i{width:42px; height:47px; background-position:-192px -104px}}
-  // &:nth-of-type(6){i{width:47px; height:47px; background-position:-240px -104px}}
-  // &:nth-of-type(7){i{width:47px; height:47px; background-position:-293px -104px}}
-  // &:nth-of-type(8){i{width:50px; height:47px; background-position:-342px -104px}}
-  // &:nth-of-type(9){i{width:50px; height:47px; background-position:-396px -104px}}
-
-// .condition_set .cate_list ul li:nth-child(1) i {background-position: -452px -100px;}
-// .condition_set .cate_list ul li:nth-child(2) i {background-position: 9px -104px;}
-// .condition_set .cate_list ul li:nth-child(3) i {background-position: -34px -104px;}
-// .condition_set .cate_list ul li:nth-child(4) i {background-position: -87px -104px;}
-// .condition_set .cate_list ul li:nth-child(5) i {background-position: -137px -104px;}
-// .condition_set .cate_list ul li:nth-child(6) i {background-position: -189px -104px;}
-// .condition_set .cate_list ul li:nth-child(7) i {background-position: -239px -104px;}
-// .condition_set .cate_list ul li:nth-child(8) i {background-position: -290px -104px;}
-// .condition_set .cate_list ul li:nth-child(9) i {width:53px; background-position: -340px -104px;}
-// .condition_set .cate_list ul li:nth-child(10) i {background-position: -507px -102px;}
-
-
-// .condition_set .cate_list ul li.on, .condition_set .cate_list ul li:hover {
-//   color:$basicblck;
-//   transition: all 0.3s ease-in-out;
-// }
-// .condition_set .cate_list ul li.on a, .condition_set .cate_list ul li:hover a {
-//   color: $pointred;
-//   font-weight: bold;
-//   transition: all 0.3s ease-in-out;}
-// // .condition_set .cate_list ul li:nth-child(1).on i, .condition_set .cate_list ul li:nth-child(1):hover i {background-position: 0 0;}
-// // .condition_set .cate_list ul li:nth-child(2).on i, .condition_set .cate_list ul li:nth-child(2):hover i {background-position: -50px 0;}
-// // .condition_set .cate_list ul li:nth-child(3).on i, .condition_set .cate_list ul li:nth-child(3):hover i {background-position: -100px 0;}
-// // .condition_set .cate_list ul li:nth-child(4).on i, .condition_set .cate_list ul li:nth-child(4):hover i {background-position: -150px 0;}
-// // .condition_set .cate_list ul li:nth-child(5).on i, .condition_set .cate_list ul li:nth-child(5):hover i {background-position: -200px 0;}
-// // .condition_set .cate_list ul li:nth-child(6).on i, .condition_set .cate_list ul li:nth-child(6):hover i {background-position: -250px 0;}
-// // .condition_set .cate_list ul li:nth-child(7).on i, .condition_set .cate_list ul li:nth-child(7):hover i {background-position: -300px 0;}
-// // .condition_set .cate_list ul li:nth-child(8).on i, .condition_set .cate_list ul li:nth-child(8):hover i {background-position: -350px 0;}
-// // .condition_set .cate_list ul li:nth-child(9).on i, .condition_set .cate_list ul li:nth-child(9):hover i {background-position: -400px 0;}
-// // .condition_set .cate_list ul li:nth-child(10).on i, .condition_set .cate_list ul li:nth-child(10):hover i {background-position: -450px 0;}
-// .condition_set .brand_list .tit {height: 602px; line-height: 602px;}
-// .condition_set > li .con_box {
-//   float: right;
-//   box-sizing: border-box;
-//   width: 1008px;
-
-// }
-// .condition_set .brand_list .con_box {
-//   width:100%;
-//   max-height: 600px;
-//   padding: 30px;
-//   overflow-y: scroll;
-//   border:1px solid $basicdd;
-//   @include display(flex,left,flex-start);
-//   flex-wrap: wrap;
-//   display: inline-block;
-
-// }
-// .condition_set .brand_list .con_box li {
-//   position: relative; 
-//   margin:15px 15px;
-//   box-sizing: border-box;
-//   display: inline-block;
-//   width: 19%;
-//   max-width:145px;
-//   height: 75px; 
-//   box-shadow: 3px 2px 5px rgba(0,0,0,.1);
-//   border-radius: 0 0 10px 10px;
-//   overflow: hidden;
-// }
-// .condition_set .brand_list .con_box li:nth-child(5n + 1) {margin: 0 0 20px 0;}
-
-// .condition_set .brand_list .con_box li a {display: block;}
-// .condition_set .brand_list .con_box li img {position: absolute; top: 50%; transform: translateY(-50%); left: 0; right: 0; margin: 0 auto; max-width: 100%; max-height: 100%;}
-// .condition_set .price_range .tit {height: 102px; line-height: 102px;}
-// .condition_set .price_range .con_box {height: 100px; padding: 20px;}
-// .condition_set .price_range .con_box p {float: left; position: relative; box-sizing: border-box; width: 150px; padding: 10px; border-bottom: 2px solid #333;}
-// .condition_set .price_range .con_box p:before {display: block; position: absolute; top: 50%; transform: translateY(-50%); left: 10px; font-size: 16px; color: #333; content: '₩';}
-// .condition_set .price_range .con_box input {width: 100%; font-size: 16px; color: #333; text-align: right;}
-// .condition_set .price_range .add_price {position:relative; z-index:-1; height:100px; color:#555;}
-// .condition_set .price_range .add_price .adp_left { position: absolute; left: 223px; bottom: 6px;}
-// .condition_set .price_range .add_price .adp_right { position: absolute; right: 71px; bottom: 6px;}
-
 .brand_voucher {display: none;}
 
 .ui-slider {position: relative; float: left; width: 590px; height: 5px; margin: 23px 42px 0 30px; background-color: #dcdcdc;}
@@ -1582,7 +1457,7 @@ $pointskyblue:#eaf0f7;
             margin-bottom: 5px;
             &.on{
               font-weight: bold;
-              color:$basicblck;
+              color:$basicmint;
               label{
                 &::before{
                   background-image: url("../images/main/common_icon.png");
@@ -1619,8 +1494,7 @@ $pointskyblue:#eaf0f7;
             height:260px;
             overflow: hidden;
             overflow-y: scroll;
-            display: none;
-            
+            display: none;            
             li{
               width:20%;
               margin-bottom:20px;
@@ -1628,8 +1502,9 @@ $pointskyblue:#eaf0f7;
                 @include display(flex,center,center);
                 flex-direction: column;
                 >span{
+                  color:$basic2c;
                   display:block;
-                  width:90%;
+                  width:90%;                  
                   text-align: center;
                   overflow:hidden;
                   text-overflow:ellipsis;    

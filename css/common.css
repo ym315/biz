@@ -2505,7 +2505,7 @@ img {
 }
 .brand_menu_search .condition_set .cate_list > ul li.on {
   font-weight: bold;
-  color: #000;
+  color: #00b2a9;
 }
 .brand_menu_search .condition_set .cate_list > ul li.on label::before {
   background-image: url("../images/main/common_icon.png");
@@ -2562,6 +2562,7 @@ img {
   flex-direction: column;
 }
 .brand_menu_search .condition_set .cate_list > ul.con_box li > a > span {
+  color: #2c2c2c;
   display: block;
   width: 90%;
   text-align: center;
