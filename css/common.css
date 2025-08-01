@@ -48,6 +48,10 @@ img {
   will-change: transform;
 }
 
+body {
+  min-width: 1280px;
+}
+
 /*공통 css*/
 .txtc {
   text-align: center !important;
