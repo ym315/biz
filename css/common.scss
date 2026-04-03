@@ -30,7 +30,9 @@ $basicblck : #000;
 $basic2c: #2c2c2c;
 $basicgray:#666;
 $basic95 : #959595;
+$basicf1: #f1f1f1;
 $basicf6: #f6f6f6;
+$basicf8: #f8f8f8;
 $basicab: #ababab;
 $basic55: #555;
 $basic99: #999;
@@ -39,6 +41,7 @@ $basicee:#eee;
 $basicdd:#ddd;
 $basicf1:#f1f1f1;
 $pointred: #BF1D2D;
+$rightred:#ED2024;
 $softmint: #bae1df;
 
 $pointskyblue:#eaf0f7;
@@ -1627,7 +1630,7 @@ $pointskyblue:#eaf0f7;
 
 //주문결제
 .order_form{
-  width: 740px;
+  width: 1000px;
     position: relative;
     margin: 0 auto;
 }
@@ -1962,8 +1965,6 @@ $pointskyblue:#eaf0f7;
         &:nth-of-type(7){i{background-position:-456px -287px;}}
         &:nth-of-type(8){i{background-position:-527px -287px;}}
         &:nth-of-type(9){i{background-position:-600px -287px;}}
-
-
       }
     }
   }
@@ -2299,4 +2300,265 @@ $pointskyblue:#eaf0f7;
     border-radius: 50px;
     margin-top:30px;}
     .main_customer_time{font-size: 14px; color:$basic55; white-space: pre-line;}
+}
+
+
+
+
+//견적서 페이지
+.sub_contentwide{width: 1280px;}
+.estimate{
+      @include display (flex,space-between,flex-start);
+      >div{width:49.2%; border-radius: 10px;}
+      h4{font-size: 25px;}
+      h5{font-size: 20px; margin:0; margin-bottom: 20px; padding-left:5px;}
+      .cover{background:$basicf8;}
+      .bold{font-weight: bold;}
+      .point{color:$basicmint;}
+      .paging{
+        @include display(flex,flex-start,center);
+        font-size: 13px;
+        li{
+          margin:0 5px;
+          &.on{color:$basicmint; font-weight: bold; a{color:currentColor;}}
+          
+        }
+      }
+    .just-right {justify-content: flex-end;}
+    .estimate-item{
+      @include display(flex,space-between,center);  
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 2vh;
+      background: $basicwhite;
+      border:1px solid $basicee;
+      border-radius: 10px;      
+      position: relative;
+      flex-wrap: nowrap;
+      &.on{border: 1px solid $basicmint;}
+      img{width:fit-content; max-width: 100px;}
+      .txt{
+        width: 65%;
+        margin-left:2.5%;
+        margin-right:2.5%;
+        word-break: keep-all;
+        font-size: 14px;
+      }
+      .txt2{width:60%;}
+      .sale{color: $basicmint;font-weight: 600;}
+      .sale-price{font-size: 1.1rem; font-weight: 500; margin: 0 5px 0 3px;}
+      .normal-price{text-decoration: line-through; font-size: .8rem; font-weight: 400; color:$basic99;}
+      .button-add{
+        @include display(flex,center,center);
+        // position: absolute;
+        // right:10px;
+        width:45px; height:45px;        
+        background: $basicf1;        
+        border-radius: 5px;
+        cursor: pointer;
+        p{color: #838383; font-size: 25px; font-weight: 400;}
+      }
+            
+    } 
+    .item-selected{
+      .button-del{
+        @include display(flex,center,center);
+        background: $basicf8; 
+        border: 1px solid $basiccc;
+        border-radius: 5px;
+        width:50px; height:40px;
+        cursor: pointer;        
+      }
+      .estimate-amount{
+        border:1px solid $basicee;        
+        @include display(flex,space-between,center);
+        text-align: center;
+        width:15%;
+        // width: 60px;
+        margin: 0;
+        margin-right: 10px;
+        border-radius: 5px;
+        border: 1px solid $basiccc;
+        height: 40px;
+        padding: 5px;
+        input[type='text']{width:70%; text-align: center; font-size: 1.1rem;}
+        .minus-btn, .plus-btn{cursor: pointer;}
+      }
+
+    }
+    
+    //공용 
+    .estimate-l{padding:15px;}
+    .estimate-common{
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+    .estimate-search{
+          margin-bottom: 15px;      
+          >div{
+            @include display(flex,space-between,center);
+            flex-wrap: nowrap;
+            margin-top:15px;            
+            button,input{margin:0}
+          }
+          h4{margin:0;}
+          .refresh{font-size: 13px;}
+          .estimate-text, .estimate-search-btn{height:45px; border-radius: 5px;}
+          .estimate-text {width: 84%; padding-left: 10px;}
+          .estimate-search-btn{
+            background: #0C334A; color:$basicwhite;
+            width:15%;
+          }
+    }
+    //카테고리, 브랜드
+    .estimate-cate{
+      @include display(flex,space-between,flex-start);
+      >div{
+        @include layout(49%,0,10px);    
+        background: $basicwhite;
+        border-radius: 10px;
+        height: 430px;
+      }
+      .cate-detail{
+        @include display(flex,space-between,flex-start);
+        height: 90%;
+        li{
+          width: 30%;    
+          text-align: center;  
+          margin-bottom: 10px;
+          &.on{
+            font-weight: bold; color:$basicmint;
+            .icon{border:2px solid currentColor; box-shadow: 2px 2px 6px $basic95;}
+            a{color:currentColor;}
+          }
+            .icon-circle{
+              width: 75px;
+              height: 75px;
+              border-radius: 50%;
+              background-color: #E6EFEE;
+              background-repeat: no-repeat;
+              display: inline-block;
+              background-image: url("../images/main/common_icon.png");
+
+            }
+            .icon-cate{font-size: 14px;}
+            &:nth-of-type(1){.icon{background-position:-48px -287px}}
+            &:nth-of-type(2){.icon{background-position:-111px -287px}}
+            &:nth-of-type(3){.icon{background-position:-174px -289px}}
+            &:nth-of-type(4){.icon{background-position:-245px -287px}}
+            &:nth-of-type(5){.icon{background-position:-320px -285px}}
+            &:nth-of-type(6){.icon{background-position:-390px -285px}}
+            &:nth-of-type(7){.icon{background-position:-459px -287px}}
+            &:nth-of-type(8){.icon{background-position:-527px -287px}}
+            &:nth-of-type(9){.icon{background-position:-600px -287px}}
+        }
+
+      }
+      
+    }
+    .brand-detail{
+        @include display(flex,flex-start,flex-start);
+        align-content:flex-start;
+        flex-wrap: wrap;
+        height: 90%;
+        overflow-y: auto;
+        font-size: 14px;    
+        li{
+          width:48%;
+          text-align: center;
+          margin-bottom: 1vh;
+          img{width: 95%; border: 1px solid $basicee}
+          p{color:$basic2c;}
+          &.on{
+            font-weight: bold; color:$basicmint;            
+            a,p{color:currentColor;}
+            img{border: 1px solid currentColor;}
+          }
+
+        }
+      }
+    .estimate-product{
+        @include layout(100%,0 auto,10px);    
+        background: $basicwhite;
+        height: 600px;
+    
+      .product-title{
+        @include display(flex,space-between,center);        
+        position: relative;    
+        width: 100%;
+        margin-bottom: 12px;
+        h5{margin:0;}
+        .product-sort{      
+          font-size: 14px;
+          label{margin-right:3px;}
+          div.sort{ 
+            display: inline-block;
+            >select{
+            border: 1px solid $basicee;
+            text-align: center;   
+            width: 90px;
+            font-size:13px;
+            }
+            
+          }
+                  
+        }
+
+      }  
+      .product-detail{
+        height: 90%;      
+        overflow-y: auto;
+        font-size: 14px;
+        .product-item{cursor: pointer; width:100%;}
+      }
+      .paging{margin-top:auto;}
+    }
+    
+    
+
+    .estimate-r-item{      
+      @include display(flex,flex-start,center);
+      flex-direction:column;      
+      background: $basicf8;
+      padding: 12.5px;
+      height: 700px;
+      border-radius: 10px;
+      .r-item-cover{
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+      }
+      
+
+    }
+  .estimate-result{
+    @include layout(100%,10px 0,15px);
+    background: $basicwhite;
+    border: 1px solid $basicee;
+    border-radius: 5px;    
+    >p{
+      @include display(flex,space-between,center);
+      margin:10px 0 10px 0;
+      border-bottom: 1px  dashed $basicdd;
+      padding-bottom: 10px;
+      &:last-child{border-bottom:none;}
+      span{
+        &.result{color:$rightred; font-size: 30px; font-weight: 600;}
+      }
+
+    }
+  }
+  .estimate-btn{
+    @include display(flex,center,center);
+    button{
+      min-width: 100px; 
+      height:45px; 
+      border:1px solid $basiccc;
+      border-radius: 5px;
+      padding: 5px;
+      margin-left:2%;
+      font-weight: 500;
+      &.buy{background-color:$pointred; color:$basicwhite; border:none;}
+    }    
+  }
 }

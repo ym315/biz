@@ -29,8 +29,9 @@
     <link rel="stylesheet" href="css/slick-theme.css" />
     <link rel="stylesheet" href="css/common.css">
 
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/slick.js"></script>
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/slick.js"></script>
     <script src="Scripts/js.cookie.js"></script>
 
 
@@ -117,69 +118,8 @@
 <body>
 
    <div id="A_Wrap">
-    <header class="head">
-        <article class="head_top">
-            <h1><a href="#"><img src="./images/common/black_logo.png"></a></h1>
-            <ul class="head_top_menu">
-                <li><a href="#">회원가입</a></li>
-                <li><a href="#">로그인</a></li>
-                <li><a href="#">홍길동님</a> <span class="pointmint">충전금 134,678원 </span></li>
-                <li><a href="#">장바구니</a><span class="cart_num">2</span></li>   
-            </ul>
-        </article>
-        <article class="head_menu">
-            <section>
-                <ul class="head_menu_con">
-                    <li><a href="brand.html">브랜드샵</a></li>
-                    <!-- <li><a href="#">이벤트</a></li>
-                    <li><a href="#">온라인 견적서</a></li>
-                    <li>
-                        <a href="#">마이페이지</a>
-                        <ul class="head_menu_sub">
-                            <li><a href="/Mypage/Mypage">내정보관리</a></li>
-                            <li><a href="/Mypage/MypageCheck">회원정보관리</a></li>
-                            <li><a href="/Mypage/MypageSendList">발송내역관리</a></li>
-                            <li><a href="/Mypage/MypageCharge">충전금관리</a></li>
-                            <li><a href="/Mypage/MypageEstimate">상품견적관리</a></li>
-                            <li><a href="/Mypage/MypageMms">문자메시지관리</a></li>
-                            <li><a href="/Brand/WishList">찜목록관리</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">고객센터</a>
-                        <ul class="head_menu_sub">
-                            <li><a href="/Notice/Notice">공지사항</a></li>
-                            <li><a href="/Notice/Qna">1:1 문의</a></li>
-                            <li><a href="/Notice/Faq">자주하는 질문</a></li>
-                        </ul>
-                    </li> -->
-                    <li><a href="ApplyOrder.html">주문결제 확인</a></li>
-                </ul>
-                <script type="text/javascript">
-                    $(".head_menu_con > li").mouseover(function () {
-                        // $(this).children(".head_menu_sub").fadeIn(100);
-                        $(this).children(".head_menu_sub").stop().slideDown(300);
-                    });
-                    $(" .head_menu_con > li, .head_menu_sub").mouseleave(function () {
-                        $(this).children(".head_menu_sub").stop().slideUp(300);
-                    });
-                </script>
-                <div class="mainsearch">
-                    <input type="text" class="search_txt" id="searchtext" name="searchtext" placeholder="스타벅스 기프티콘" maxlength="20">
-                    <button type="button" class="search_btn" onclick="javascript: fn_Search();"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    
-                </div>
-
-
-                <!-- <div class="search_input">
-                    <input id="keyword" name="keyword" type="text" placeholder="결과 내 재 검색" />
-                    <button class="btn_search" type="button">검색</button>
-                </div> -->
-            </section>
-        </article>
-
-
-    </header>
+    <div id="header-inner"></div>
+    
 
       <main class="main2">
 
@@ -1081,39 +1021,6 @@ $('.btn_resetall').on('click', function () {
                 </div> 
             </section>
         </article> 
-
-
-        <article class="main_customer">
-            <section>
-                <h3>
-                    이용하는데
-                    궁금한점이 있나요?
-                </h3>                
-            </section>
-            <section class="main_customer_line">
-                <div>
-                    <h4 class="footer_subtitle">제휴 및 입점 문의</h4>
-                    <p>mkt@gift-n.co.kr</p>
-                </div>
-                <div>
-                    <h4 class="footer_subtitle">입금 은행</h4>
-                    <p>우리 1005-802-253840</p>
-                    <span>예금주 : 기프트레터(주)</span>
-                </div>
-            </section>
-            <section>
-                <h4 class="footer_subtitle">고객 센터</h4>
-                <h3>1600-4072</h3>
-                <p class="main_customer_time">
-                    평일 09:00-18:00 │ 점심시간 12:30 - 13:30
-                    토,일요일/공휴일 휴무
-                </p>
-                <button type="button" class="customer_btn">1:1 문의</button>
-            </section>
-        </article>
-        
-
-
      </main>
 <!-- 
  <div class="quick_wrap">
@@ -1150,59 +1057,11 @@ $('.btn_resetall').on('click', function () {
       <button type="button" class="top_btn" onclick="document.location.href='#';">TOP</button>
    </div> -->
 
-   <footer class="foot">
-    <section class="foot_line1">
-        <h3><img src=""></h3>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </section>
-    <section class="foot_line2">
-        <ul>
-            <li>
-                <a href="http://www.giftletter.co.kr/" target="_blank">회사소개</a>
-            </li>                    
-            <li>
-                <a href="https://image.gift-n.net/gbm/files/biz_main/개인정보취급방침.docx">개인정보 처리방침</a>
-            </li>
-            <li>
-                <a href="https://image.gift-n.net/gbm/files/biz_main/이용약관.docx">이용약관</a>
-            </li>
-        </ul>
-    </section>
-    <section class="foot_line3">                  
-        <p>
-            <span>기프트레터(주)</span>
-            <spa>서울 강남구 언주로 637 (논현동, 싸이칸타워) 8층</spa>
-        </p>
-        <p>
-            <span>사업자등록번호 : 220-88-57522</span>
-            <span>통신판매업신고 : 제2021-서울서초-01383호</span>
-        </p>                       
-        <p>
-            <span>고객센터 : 1600-4072</span>
-            <span>FAX : 02-6971-9513</span>
-            <span>E-mail :mkt@gift-n.co.kr </span>
-        </p> 
-    </section>
-    <section class="foot_line4">
-        <p>COPYRIGHT 2021 giftletter ALL RIGHTS RESERVED.</p>
-        <div>
-            <a href="https://pf.kakao.com/_iprdT"></a>
-            <a href="blog.naver.com/giftn777"></a>
-            <a href="https://www.facebook.com/profile.php?id=100063652562658#"></a>
-            <a href="https://www.instagram.com/giftletter/"></a>                    
-        </div>
-    </section>
-
-</footer>
+   <div id="main-customer"></div>     
+   <div id="footer-inner"></div>
 
    </div>
-    <script>
-            
+    <script>            
         </script>
           <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
           <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>

@@ -29,11 +29,19 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
 
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/common.css" />
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/slick.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="Scripts/js.cookie.js"></script>
+
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/sub.css" />
+
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="/js/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/Scripts/js.cookie.js"></script>
+
+
+
+
 
     <link rel="stylesheet" type="text/css" href="css/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
@@ -252,69 +260,7 @@
 </head>
 <body>
     <div id="A_Wrap">
-        <header class="head">
-            <article class="head_top">
-                <h1><a href="index.html"><img src="./images/common/black_logo.png"></a></h1>
-                <ul class="head_top_menu">
-                    <li>회원가입</li>
-                    <li>로그인</li>
-                    <li>홍길동님 <span class="pointmint">충전금 134,678원 </span></li>
-                    <li>장바구니<span class="cart_num">2</span></li>   
-                </ul>
-            </article>
-            <article class="head_menu">
-                <section>
-                    <ul class="head_menu_con">
-                        <li><a href="brand.html">브랜드샵</a></li>
-                        <!-- <li><a href="#">이벤트</a></li>
-                        <li><a href="#">온라인 견적서</a></li>
-                        <li>
-                            <a href="#">마이페이지</a>
-                            <ul class="head_menu_sub">
-                                <li><a href="/Mypage/Mypage">내정보관리</a></li>
-                                <li><a href="/Mypage/MypageCheck">회원정보관리</a></li>
-                                <li><a href="/Mypage/MypageSendList">발송내역관리</a></li>
-                                <li><a href="/Mypage/MypageCharge">충전금관리</a></li>
-                                <li><a href="/Mypage/MypageEstimate">상품견적관리</a></li>
-                                <li><a href="/Mypage/MypageMms">문자메시지관리</a></li>
-                                <li><a href="/Brand/WishList">찜목록관리</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">고객센터</a>
-                            <ul class="head_menu_sub">
-                                <li><a href="/Notice/Notice">공지사항</a></li>
-                                <li><a href="/Notice/Qna">1:1 문의</a></li>
-                                <li><a href="/Notice/Faq">자주하는 질문</a></li>
-                            </ul>
-                        </li> -->
-                        <li><a href="ApplyOrder.html">주문결제 확인</a></li>
-                    </ul>
-                    <script type="text/javascript">
-                        $(".head_menu_con > li").mouseover(function () {
-                            // $(this).children(".head_menu_sub").fadeIn(100);
-                            $(this).children(".head_menu_sub").stop().slideDown(300);
-                        });
-                        $(" .head_menu_con > li, .head_menu_sub").mouseleave(function () {
-                            $(this).children(".head_menu_sub").stop().slideUp(300);
-                        });
-                    </script>
-                    <div class="mainsearch">
-                        <input type="text" class="search_txt" id="searchtext" name="searchtext" placeholder="스타벅스 기프티콘" maxlength="20">
-                        <button type="button" class="search_btn" onclick="javascript: fn_Search();"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        
-                    </div>
-
-
-                    <!-- <div class="search_input">
-                        <input id="keyword" name="keyword" type="text" placeholder="결과 내 재 검색" />
-                        <button class="btn_search" type="button">검색</button>
-                    </div> -->
-                </section>
-            </article>
-    
-    
-        </header>
+    <div id="header-inner"></div>
 
         
 
