@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>기프트엔 비즈몰</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <meta property="reply-to" content="" />
+    <meta name="author" content="GiftN" />
+    <meta property="copyright" content="" />
+    <meta name="robots" content="index,follow" />
+    <meta name="keywords" content="기업전용 모바일쿠폰, B2B대량발송, 기업이벤트 경품, 정기발송, 등급별 상시할인, 문자발송 서비스, 포인트몰 웹/모바일 API연동 제공, 모바일솔루션" />
+    <meta name="description" content="기업회원으로 등록하시면 상시 5%~10%할인 제공되며, 최대 20%까지 할인되는 이벤트도 활용해 보세요">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="기프트레터 비즈몰 (기프트엔, GiftN)입니다">
+    <meta property="og:description" content="기업회원으로 등록하시면 상시 5%~10%할인 제공되며, 최대 20%까지 할인되는 이벤트도 활용해 보세요">
+    <meta property="og:image" content="https://giftletter77.hgodo.com/com/sns_thum.png ">
+    <meta property="og:url" content="http://www.gift-n.co.kr">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+
+
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/slick.css" />
+    <link rel="stylesheet" href="css/slick-theme.css" />
+    <link rel="stylesheet" href="css/common.css">
+
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/slick.js"></script>
+    <script src="Scripts/js.cookie.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="/css/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="./xeicon/xeicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+</head>
+<body>
+    <div id="A_Wrap">
+        <div id="header-inner"></div>
+
+        
+
+    <!-- s: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+    <link rel="stylesheet" href="/_css/sub.css" />
+    <script>
+        history.pushState(null, null, "#Back");
+        $(widnow).bind("hashchange", function () {
+            history.pushState(null, null, "#Back");
+        });
+    </script>
+    <style type="text/css">
+        .table_type01 {
+            width: 100%;
+            margin: 20px 0 0 0;
+        }
+
+            .table_type01 thead tr {
+                height: 50px;
+                background-color: #555;
+            }
+
+            .table_type01 tr th {
+                font-size: 14px;
+                font-weight: 500;
+                color: #fff;
+            }
+
+            .table_type01 tbody tr {
+                height: 60px;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .table_type01 tr td {
+                font-size: 14px;
+                color: #666;
+                text-align: center;
+            }
+    </style>
+
+    <!-- e: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+
+    <div id="A_Container_Wrap">
+        <div class="inner">
+            <ul class="nav">
+                <li class="ic_home">Home</li>
+                <li>마이페이지</li>
+            </ul>
+            <div class="sub_contents">
+                <div class="sub_tit">
+                    <h3>반갑습니다. <em>기프트엔 (이다빈)</em> 님</h3>
+                </div>
+                <div class="mypage">
+                    <div class="my_top">
+                        <div class="level_box">
+                                <strong class="level_tit gold" style="color:silver"><i></i>SILVER 등급</strong>
+                                <ul class="benefit">
+                                    <li style="width:100%;">일반상품 할인 <em>5%</em></li>
+                                </ul>
+                            <p>이번분기 사용 금액은 <em>0</em> 입니다.</p>
+                            <span>기준 2026.06.30까지</span>
+                            <button class="btn_red" type="button" onclick="location.href='/Mypage/Grade';">회원등급안내</button>
+                        </div>
+                        <ul class="util_box">
+                            <li>
+                                <strong class="tit">발행 온라인 견적</strong>
+                                <a href="/Mypage/MypageEstimate">0</a>
+                            </li>
+                            <li>
+                                <strong class="tit">임시보관 주문</strong>
+                                <a href="/Mypage/MypageSendWaitList">0</a>
+                            </li>
+                            <li>
+                                <strong class="tit">찜 상품</strong>
+                                <a href="/Brand/WishList">7</a>
+                            </li>
+                            <li>
+                                <strong class="tit">비즈머니</strong>
+                                <a href="/Mypage/MypageCharge">140,040</a>
+                            </li>
+                            <li>
+                                <strong class="tit">마케팅 수신동의</strong>
+                                <ul class="onoff">
+                                    <li>
+                                        <span>문자 알림</span>
+                                        <label class='toggle-label'>
+                                            <input type='checkbox' id="chk_Sms" name="chk_Sms" />
+                                            <p class='back'>
+                                                <span class='label on'>ON</span>
+                                                <span class='label off'>OFF</span>
+                                                <input type="hidden" id="hd_SmsYn" name="hd_SmsYn" value="Y" />
+                                            </p>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong class="tit">로그인 보안 강화</strong>
+                                <ul class="onoff">
+                                    <li>
+                                        <span>문자 알림</span>
+                                        <label class='toggle-label'>
+                                            <input type='checkbox' id="chk_Sms2" name="chk_Sms2" />
+                                            <p class='back'>
+                                                <span class='label on'>ON</span>
+                                                <span class='label off'>OFF</span>
+                                                <input type="hidden" id="hd_SmsYn2" name="hd_SmsYn2" value="N" />
+                                            </p>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="my_menu">
+                        <li style="width:195px;"><a href="/Mypage/MypageCheck"><i></i>회원정보관리</a></li>
+                        <li style="width:195px;"><a href="/Mypage/MypageSendList"><i></i>발송내역관리</a></li>
+                        <li style="width:195px;"><a href="/Mypage/MypageCharge"><i></i>충전금관리</a></li>
+                        <li style="width:195px;"><a href="/Mypage/MypageEstimate"><i></i>상품견적관리</a></li>
+                        <li style="width:195px;"><a href="/Mypage/MypageMms"><i></i>문자메시지관리</a></li>
+                        <li style="width:195px;"><a href="/Notice/Qna"><i></i>1:1문의하기</a></li>
+                    </ul>
+                    <ul class="my_history">
+                        <li class="his_inquiry">
+                            <div class="tit_box">
+                                <h4>최근 발송내역</h4>
+                                <button class="btn_more" type="button" onclick="location.href='/Mypage/MypageSendList';">더보기</button>
+                            </div>
+                            <div class="con_box" style="font-size:14px;">
+                                <table class="table_type01" style="text-align:center;">
+                                    <colgroup>
+                                        <col style="width: 120px" />
+                                        <col style="width: 90px" />
+                                        <col style="width: 280px" />
+                                        <col style="width: 100px" />
+                                        <col style="width: 100px" />
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>주문일시</th>
+                                            <th>주문번호</th>
+                                            <th class="t_left">상품명</th>
+                                            <th>결제금액</th>
+                                            <th>주문상태</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                                <tr>
+                                                    <td>2026-02-04 11:10:50</td>
+                                                    <td>40412</td>
+                                                    <td style="text-align:left;">[스타벅스] e카드 1만원 교환권</td>
+                                                    <td>19,000원</td>
+                                                    <td>발행완료</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2026-01-15 11:38:43</td>
+                                                    <td>40378</td>
+                                                    <td style="text-align:left;">[신세계상품권] 10,000원권_비즈몰용</td>
+                                                    <td>9,500원</td>
+                                                    <td>발행실패</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-05-08 17:01:45</td>
+                                                    <td>40088</td>
+                                                    <td style="text-align:left;">[구글플레이] 1,000원</td>
+                                                    <td>950원</td>
+                                                    <td>발행완료</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2025-05-08 16:34:57</td>
+                                                    <td>40087</td>
+                                                    <td style="text-align:left;">[구글플레이] 1,000원</td>
+                                                    <td>950원</td>
+                                                    <td>발행실패</td>
+                                                </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                        <li class="his_message">
+                            <div class="tit_box">
+                                <h4>문자메시지 관리</h4>
+                                <button class="btn_more" type="button" onclick="location.href='/Mypage/MypageMms';">더보기</button>
+                            </div>
+                            <div class="con_box">
+                                    <img src="../images/sub/bnn_message_non.png" />
+                                <p>기본으로 설정된 문자메시지의 <br />배너 카드 이미지입니다.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var emailyn = $("#hd_EmailYn").val();
+            var smsyn = $("#hd_SmsYn").val();
+            var emailyn2 = $("#hd_EmailYn2").val();
+            var smsyn2 = $("#hd_SmsYn2").val();
+
+            if (smsyn == "Y")
+                $('input:checkbox[id="chk_Sms"]').attr("checked", true);
+            if (smsyn2 == "Y")
+                $('input:checkbox[id="chk_Sms2"]').attr("checked", true);
+
+            $("#chk_Sms").change(function () {
+                if ($('#chk_Sms').is(':checked'))
+                    SetUserOption("2", "Y");
+                else
+                    SetUserOption("2", "N");
+            });
+            $("#chk_Sms2").change(function () {
+                if ($('#chk_Sms2').is(':checked'))
+                    SetUserOption("4", "Y");
+                else
+                    SetUserOption("4", "N");
+            });
+        });
+
+        function SetUserOption(gubun, option) {
+            $.ajax({
+                url: '/Mypage/UserOption',
+                contentType: 'application/json; charset=utf-8',
+                data: {
+                    gubun: gubun,
+                    option: option
+                },
+                type: 'GET'
+            })
+                .success(function (result) {
+                    alert(result.msg);
+                })
+                .error(function (xhr, status) {
+                    alert('알림옵션 변경을 실패하였습니다.');
+                })
+        }
+    </script>
+
+
+
+
+    <div class="quick_wrap">
+        <ul class="quick_btns">
+                    <li class="bizmoney">
+                        <a href="/Mypage/MypageCharge">
+                            <i class="main_icon icon1"></i>
+                            <div class="hide_box" onclick="javascript: document.location.href='/Mypage/MypageCharge'"><p>비즈머니</p><strong>140,040원</strong></div>
+                        </a>
+                    </li>
+
+            <li>
+                <a href="/Estimate/Estimate" title="온라인견적서">
+                    <i class="main_icon icon2"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/Mypage/MypageSendWaitList" title="임시보관주문">
+                    <i class="main_icon icon3"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/Brand/WishList" title="찜목록">
+                    <i class="main_icon icon4"></i>
+                </a>
+
+                
+
+            </li>
+        </ul>
+        <div class="quick_view">
+            <p class="tit">최근 본 상품</p>
+            <div class="quick_list">
+
+            </div>
+        </div>
+        <button type="button" class="top_btn" onclick="document.location.href='#';">TOP</button>
+        </div>
+   <div id="footer-inner"></div>
+
+    </div>
+
+    <script>
+        $(function () {
+            $(".bizmoney").mouseover(function () {
+                $(this).addClass('on');
+            });
+            $(".bizmoney").mouseleave(function () {
+                $(this).removeClass('on');
+            });
+        });
+    </script>
+
+
+    <script src="/Scripts/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".owl-carousel").owlCarousel();
+
+            //랜덤뿌리기
+            function shuffleList(selector) {
+                var $ul = $(selector);
+                if ($ul.length === 0) return;
+
+                var $li = $ul.children('li');
+
+                $li.sort(function () {
+                    return Math.random() - 0.5;
+                }).appendTo($ul);
+            }
+            // 랜덤 적용 대상
+            shuffleList('.main-best');
+            shuffleList('.main-brand');
+        });
+    </script>
+    <script>
+        $(document).on('ready', function () {
+            $(".quick_list").slick({
+                accessibility: false,
+                autoplay: false,
+                speed: 1000,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                dots: false,
+                vertical: true,
+                prevArrow: "<img src='/html/images/sub/amount_up.png' style='margin-bottom: 8px;'>",
+                nextArrow: "<img src='/html/images/sub/amount_down.png'>"
+            });
+
+            $("#searchtext").keypress(function (key) {
+                if (key.keyCode == 13) {
+                    key.preventDefault();
+                    fn_Search();
+                }
+            });
+        });
+
+        function fn_Search() {
+            var check_num = /[0-9]/; // 숫자
+            var check_eng = /[a-zA-Z]/; // 문자
+            var check_spc = /[~!@#$%^&*()_+|<>?:{}]/; // 특수문자
+            var check_kor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; // 한글체크
+            var searchtext = $("#searchtext").val();
+
+            if (searchtext == '' || searchtext == null) {
+                alert('입력된 검색어가 없습니다.');
+                return false;
+            }
+            if (!check_kor.test(searchtext) && !check_eng.test(searchtext)) {
+                alert("한글만 입력가능합니다.");
+                return false;
+            }
+            document.location.href = "https://www.gift-n.co.kr/Home/SearchList?searchtext=" + searchtext + "&pg=1&sort=1";
+
+        }
+    </script>
+
+    
+    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+    <script type="text/javascript">
+        if (!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "s_47141c1bd754";
+        if (!_nasa) var _nasa = {};
+        if (window.wcs) {
+            wcs.inflow("gift-n.co.kr");
+            wcs_do(_nasa);
+        }
+    </script>
+</body>
+</html>

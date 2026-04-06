@@ -4073,7 +4073,8 @@ body {
   border-radius: 5px;
   padding: 5px;
   margin-left: 2%;
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 16px;
 }
 .estimate .estimate-btn button.buy {
   background-color: #BF1D2D;
