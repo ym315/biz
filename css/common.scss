@@ -37,8 +37,8 @@ $basicab: #ababab;
 $basic55: #555;
 $basic99: #999;
 $basiccc:#ccc;
-$basicee:#eee;
 $basicdd:#ddd;
+$basicee:#eee;
 $basicf1:#f1f1f1;
 $pointred: #BF1D2D;
 $rightred:#ED2024;
@@ -68,6 +68,7 @@ $pointskyblue:#eaf0f7;
 
 .pre {white-space: pre-line;}
 .pointmint{color:$basicmint; font-weight: bold;}
+.pointred{color:$pointred; font-weight: bold;}
 
 
 
@@ -2563,3 +2564,160 @@ $pointskyblue:#eaf0f7;
     }    
   }
 }
+.mypage{
+  @include display(flex,flex-start,flex-start);
+  //공통
+  .line{border:1px solid $basicdd;}
+  h4{font-size: 25px; font-weight: 500; margin-bottom: 1em;}
+  .grade{font-weight: bold;}
+
+  .mypage-left{
+    width:25%;
+    font-size: 15px;
+    >div{padding:20px; margin-bottom: 2em;}
+    .mypage-left-title{
+      text-align: center;      
+      .class{
+        width:100px; 
+        height:100px; 
+        margin:0 auto;
+        background: $basicf6;
+        border-radius: 50%;
+        margin-bottom: 1em;
+      }
+    }
+    .mypage-left-menu{
+      li{
+        padding: 15px 0;
+        border-bottom: 1px solid $basicee;
+        span{vertical-align: middle; display: inline-block;}        
+        .icon-circle{
+          width:35px; 
+          height: 35px;
+          background: $basiccc; 
+          border-radius: 50%;
+          margin-right: 10px;
+
+        }
+        &:last-child{border-bottom: none;}
+      }
+    }
+    .mypage-left-set{
+      li{
+        @include display(flex,space-between,center);
+        @include layout(100%,0 auto,15px 0);
+        border-bottom: 1px solid $basicee;
+        &:last-child{border-bottom: none;}
+        .toggle-slider{
+            @include display(flex,center,center);
+            .toggle-slider-btn{display: none;}
+              label{
+                cursor: pointer;
+                width:65px;
+                height: 30px;
+                text-indent: -999em;
+                background:$basic99;
+                border-radius: 40px;
+                position: relative;
+                transition: 0.6s ease-out;
+                &:before{
+                      content: "OFF";
+                      color: #fff;
+                      font-size: 13px;
+                      position: absolute;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      left: auto;
+                      right: 10px; 
+                      text-indent: 0;
+                      z-index: 3;
+                      pointer-events: none;
+                }
+                &::after{
+                  content: '';
+                  width:20px;
+                  height: 20px;
+                  background: $basicwhite;
+                  position: absolute;
+                  border-radius: 50%;
+                  top:5px; left:5px;
+                }
+              }
+            .toggle-slider-btn:checked + label{
+              background: $pointred;
+              &::after{
+                left:40px;
+              }
+              &::before{
+                    content: "ON";                    
+                    right: auto;
+                    left: 10px; 
+                    text-indent: 0;
+                    z-index: 3;
+                    pointer-events: none;}
+            }
+        }
+      }
+      
+
+
+    }
+  }//left
+
+  .mypage-right{
+    width:72%;
+    margin-left: 3%;
+    >div{padding:20px; margin-bottom: 2em;}
+    .mypage-right-content{
+      @include display(flex,space-around,center);      
+      @include layout(100%,0 auto,0);
+      li{
+        text-align: center;        
+        position: relative;
+        width:30%;        
+        &::after{
+          content: "";
+          position: absolute;
+          right: -12px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 1px;
+          height: 60%;
+          background: #ccc;       
+        }
+        &:last-child{&::after{content:none;}}
+        p.num{font-size: 1.5em;}
+      }
+    }
+  }//right
+  
+}
+
+.table-top{
+  @include display(flex,space-between,center);
+  h4,p,span{margin:0;}
+  .more{
+    color:$basic99; font-size: 14px;
+    a{color: currentColor;}
+    &:after{content:' >'}    
+  }
+}
+.table{
+  margin-top:1.5em;
+  li{    
+    @include display(flex,space-between,flex-start);
+    padding: 20px 10px;
+    text-align: center;    
+    display: grid;  
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;   
+    gap: 10px;
+    border-bottom:1px solid $basicee;
+    
+      &:last-child{border-bottom: none;}
+      &.board-header{
+      background: $basicab;
+      color:$basicwhite;      
+      }
+  }    
+}
+.table5{li{grid-template-columns: 1fr 1fr 2fr 1fr 1fr;}}
