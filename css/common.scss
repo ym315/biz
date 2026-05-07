@@ -43,7 +43,7 @@ $basicf1:#f1f1f1;
 $pointred: #BF1D2D;
 $rightred:#ED2024;
 $softmint: #bae1df;
-
+$softbase:#e5efee;
 $pointskyblue:#eaf0f7;
 
 
@@ -1950,7 +1950,7 @@ $pointskyblue:#eaf0f7;
         i{
           width:75px;
           height:75px;
-          background: #e5efee;
+          background: $softbase;
           border-radius: 50%;
           display: block;
           text-align: center;
@@ -2592,14 +2592,22 @@ $pointskyblue:#eaf0f7;
         border-bottom: 1px solid $basicee;
         span{vertical-align: middle; display: inline-block;}        
         .icon-circle{
-          width:35px; 
-          height: 35px;
-          background: $basiccc; 
+          width:37px; 
+          height: 37px;
+          background: $softbase; 
           border-radius: 50%;
           margin-right: 10px;
-
+        }
+        .icon{
+          background-image: url(../images/main/common_icon.png);
         }
         &:last-child{border-bottom: none;}
+        &:nth-of-type(1){.icon{background-position:5px -357px;}}
+        &:nth-of-type(2){.icon{background-position:-37px -358px;}}
+        &:nth-of-type(3){.icon{background-position:-74px -357px;}}
+        &:nth-of-type(4){.icon{background-position:-117px -358px;}}
+        &:nth-of-type(5){.icon{background-position:-151px -357px;}}
+        &:nth-of-type(6){.icon{background-position:-190px -357px;}}        
       }
     }
     .mypage-left-set{
@@ -2702,11 +2710,11 @@ $pointskyblue:#eaf0f7;
     &:after{content:' >'}    
   }
 }
-.table{
+.table-div{
   margin-top:1.5em;
   li{    
     @include display(flex,space-between,flex-start);
-    padding: 20px 10px;
+    padding: 20px 5px;
     text-align: center;    
     display: grid;  
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;   
@@ -2720,4 +2728,4 @@ $pointskyblue:#eaf0f7;
       }
   }    
 }
-.table5{li{grid-template-columns: 1fr 1fr 2fr 1fr 1fr;}}
+.table5{li{grid-template-columns: 1.5fr 1fr 2fr 1fr 1fr;}}

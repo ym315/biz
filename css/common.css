@@ -4134,14 +4134,35 @@ body {
   display: inline-block;
 }
 .mypage .mypage-left .mypage-left-menu li .icon-circle {
-  width: 35px;
-  height: 35px;
-  background: #ccc;
+  width: 37px;
+  height: 37px;
+  background: #e5efee;
   border-radius: 50%;
   margin-right: 10px;
 }
+.mypage .mypage-left .mypage-left-menu li .icon {
+  background-image: url(../images/main/common_icon.png);
+}
 .mypage .mypage-left .mypage-left-menu li:last-child {
   border-bottom: none;
+}
+.mypage .mypage-left .mypage-left-menu li:nth-of-type(1) .icon {
+  background-position: 5px -357px;
+}
+.mypage .mypage-left .mypage-left-menu li:nth-of-type(2) .icon {
+  background-position: -37px -358px;
+}
+.mypage .mypage-left .mypage-left-menu li:nth-of-type(3) .icon {
+  background-position: -74px -357px;
+}
+.mypage .mypage-left .mypage-left-menu li:nth-of-type(4) .icon {
+  background-position: -117px -358px;
+}
+.mypage .mypage-left .mypage-left-menu li:nth-of-type(5) .icon {
+  background-position: -151px -357px;
+}
+.mypage .mypage-left .mypage-left-menu li:nth-of-type(6) .icon {
+  background-position: -190px -357px;
 }
 .mypage .mypage-left .mypage-left-set li {
   display: flex;
@@ -4279,31 +4300,31 @@ body {
   content: " >";
 }
 
-.table {
+.table-div {
   margin-top: 1.5em;
 }
-.table li {
+.table-div li {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   display: -moz-flex;
   display: -o-flex;
   -webkit-flex-wrap: wrap;
-  padding: 20px 10px;
+  padding: 20px 5px;
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 10px;
   border-bottom: 1px solid #eee;
 }
-.table li:last-child {
+.table-div li:last-child {
   border-bottom: none;
 }
-.table li.board-header {
+.table-div li.board-header {
   background: #ababab;
   color: #fff;
 }
 
 .table5 li {
-  grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 2fr 1fr 1fr;
 }/*# sourceMappingURL=common.css.map */
